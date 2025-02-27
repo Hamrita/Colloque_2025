@@ -1,0 +1,89 @@
+---
+title: |
+  A combined recurrent neural network model for cryptocurrency time series forecasting
+type: 
+author:
+  - name: Wiem Ben Romdhane
+    affil: a
+    email: wiembr@gmail
+  - name: Heni Boubaker
+    affil: a
+    email: heniboubaker@gmail.com
+ 
+affiliation:
+  - num: a
+    address: |
+      LaREMFIQ, IHEC Sousse, Tunisia.
+ 
+bibliography: interactcadsample.bib
+appendix: appendix.tex
+abstract: |
+  Forecasting cryptocurrency time series presents a difficult challenge, primarily attributable to their inherent non-linearity and chaotic behavior. While traditional statistical methodologies have yielded notable efficacy in specific domains, such as directional market prediction and individual equity price forecasting, the advent of neural networks and recurrent neural networks has catalyzed the exploration of novel paradigms in financial time series prediction. Furthermore, contemporary research posits that the synergistic integration of statistical and machine learning techniques can yield enhanced predictive accuracy relative to their isolated application. This study, therefore, proposes a combined framework that integrates statistical features derived from financial time series with a recurrent neural networks architecture for temporal forecasting. The efficacy of this methodology was evaluated through the prediction of Bitcoin (BTC) closing prices, utilizing a suite of performance metrics. Empirical results demonstrate the superiority of our model compared to univariate statistical and machine learning models.  
+keywords: |
+  Forecasting; BTC; Time series; RNN; GRU
+header-includes: |
+  \usepackage{hyperref}
+  \usepackage[utf8]{inputenc}
+  \def\tightlist{}
+output: rticles::tf_article
+---
+
+# Introduction
+
+```{r, echo=F, comment=NA, message=FALSE, warning=FALSE, fig.align='center', out.width="85%"}
+library(tidyverse, quietly =T)
+btc <- crypto2::crypto_history(limit = 2,
+  start_date = "2016-01-06",
+  end_date = "2025-02-20",
+  
+)
+btc_c=btc %>% dplyr::filter(symbol=="BTC")%>%dplyr::select(time_close, close)
+BTC=xts::xts(btc_c$close, btc_c$time_close )
+forecast::autoplot(BTC)
+```
+# Introduction
+The rapid growth of cryptocurrencies over the past decade has transformed them into a significant component of the global financial system. However, the volatile and non-linear nature of cryptocurrency prices presents unique challenges for accurate forecasting. Traditional statistical methods often fall short in capturing the intricate temporal dependencies and high volatility of cryptocurrency time series. As a result, researchers have increasingly turned to deep learning models, particularly Recurrent Neural Networks (RNNs), to address these challenges [@NASIRTAFRESHI2022; @kumar23; @seable23] .
+
+Recurrent Neural Networks (RNNs) are well-suited for time series forecasting due to their ability to model sequential data and capture temporal dependencies. Variants of RNNs, such as Long Short-Term Memory (LSTM) and Gated Recurrent Unit (GRU), have been widely adopted for cryptocurrency forecasting. These models are particularly effective in handling long-term dependencies and mitigating the vanishing gradient problem, which is common in traditional RNNs. 
+For instance, Nasirtafreshi (2022) proposed an RNN-LSTM model to predict cryptocurrency prices, demonstrating its ability to outperform traditional methods in terms of accuracy.
+
+To further enhance the predictive performance of RNNs, researchers have explored hybrid models that combine RNNs with other techniques. For example, Guo et al. (2021) developed a hybrid method that integrates a multiscale residual block with an LSTM network to forecast Bitcoin prices. This approach leverages the strengths of both components: the residual block captures multi-scale features, while the LSTM network models temporal dependencies. 
+
+Similarly, other studies have proposed combining RNNs with convolutional layers or graph-based methods to improve the model's ability to capture spatial and temporal patterns in cryptocurrency data. The combined RNN models offer several advantages over standalone RNNs or traditional methods. By integrating complementary techniques, these models can better handle the non-stationarity and noise inherent in cryptocurrency time series. For instance, hybrid models that incorporate wavelet transforms or attention mechanisms have been shown to improve feature extraction and focus on relevant patterns in the data. Additionally, ensemble approaches that aggregate predictions from multiple RNN-based models have demonstrated enhanced robustness and accuracy in cryptocurrency forecasting. 
+
+# Related works
+
+Machine Learning is an artificial intelligence device that uses beyond information to predict the future. In simple words, we can expect the future price movements of cryptocurrencies to some extent by training a machine learning model using their past price data. Some recent studies have shown that machine learning based methods have many advantages of using traditional forecasting models, such as the ability to produce results that are approximately equal or identical to the actual outcome, while also improving the precision of the outcome [@hitam2021]. Decision trees, support vector machine, and neural networks are some of the different machine learning methods that can be used for this purpose. As evidenced by the authors in [@andrianto17], the inclusion of cryptocurrencies in multi-asset portfolios significantly improves portfolios in several ways. To start, it will enhance the portfolio’s minimal variance and furthermore transfers the green frontier to a higher location. 
+
+Several research studies in the literature that using machine learning algorithms in BTC price forecasting achieve encouraging results. According to a study [@hitam2021], machine learning algorithms were applied to perform the price prediction of many currencies including BTC, ETH, LTC, XRP, and Stellar. According to the researchers, the SVM model was able to beat other machine learning models in terms of predicted values as well as accuracy. [@saad19] used a variety of variables, carefully choosing the most accurate predictors using correlation analysis. The results showed that linear regression performed better than the other approaches when SVM, linear regression, and random forest (RF) were used to these selected features. The authors also tried predicting the prices of BTC and ETH using LSTM, a specific kind of deep learning, and discovered that LSTM had the lowest prediction error for BTC. To predict the prices of nine different cryptocurrencies, [@chowdhury20] studied the application of machine learning-based ensemble methods, namely ANN, KNN, Gradient Boosted Trees and an ensemble model made up of multiple methods. The ensemble learning model had the the lowest error in the predictions. [@derbentsev21] studies the difficulties faced when forecasting short-term cryptocurrency time series using supervised machine learning (ML). The ensemble methods were then applied to the daily closing prices of Bitcoin (BTC), Ethereum (ETH), and Ripple (XRP) using historical prices and technical indicators such as moving averages as features: Random Forest (RF) and Stochastic Gradient Boosting Machine (SGBM). The results showed that ML ensemble methods held promise, with SGBM and RF yielding good accuracy on short-term predictions. 
+
+# Acknowledgement(s) {-}
+
+An unnumbered section, e.g.\ `\section*{Acknowledgements}`, may be used for thanks, etc.\ if required and included _in the non-anonymous version_ before any Notes or References.
+
+# Disclosure statement {-}
+
+An unnumbered section, e.g.\ `\section*{Disclosure statement}`, may be used to declare any potential conflict of interest and included _in the non-anonymous version_ before any Notes or References, after any Acknowledgements and before any Funding information.
+
+# Funding {-}
+
+An unnumbered section, e.g.\ `\section*{Funding}`, may be used for grant details, etc.\ if required and included _in the non-anonymous version_ before any Notes or References.
+
+# Notes on contributor(s) {-}
+
+An unnumbered section, e.g.\ `\section*{Notes on contributors}`, may be included _in the non-anonymous version_ if required. A photograph may be added if requested.
+
+# Nomenclature/Notation {-}
+
+An unnumbered section, e.g.\ `\section*{Nomenclature}` (or `\section*{Notation}`), may be included if required, before any Notes or References.
+
+# Notes {-}
+
+An unnumbered `Notes` section may be included before the References (if using the `endnotes` package, use the command `\theendnotes` where the notes are to appear, instead of creating a `\section*`).
+
+# References
+
+## References cited in the text
+
+## The list of references
+
