@@ -74,22 +74,10 @@ statistical and machine learning models.
 \end{abstract}
 
 \begin{keywords}
-Forecasting; BTC; Time series; RNN; GRU
+Forecasting; BTC; Time series; RNN; LSTM; GRU; Combined
 \end{keywords}
 
 \section{Introduction}\label{introduction}
-
-\begin{verbatim}
-> Scraping historical crypto data
-\end{verbatim}
-
-\begin{verbatim}
-> Processing historical crypto data
-\end{verbatim}
-
-\begin{center}\includegraphics[width=0.85\linewidth]{Colloque_files/figure-latex/unnamed-chunk-1-1} \end{center}
-
-\section{Introduction}\label{introduction-1}
 
 The rapid growth of cryptocurrencies over the past decade has
 transformed them into a significant component of the global financial
@@ -176,7 +164,59 @@ Bitcoin (BTC), Ethereum (ETH), and Ripple (XRP) using historical prices
 and technical indicators such as moving averages as features: Random
 Forest (RF) and Stochastic Gradient Boosting Machine (SGBM). The results
 showed that ML ensemble methods held promise, with SGBM and RF yielding
-good accuracy on short-term predictions.
+good accuracy on short-term predictions. \citep{chen2021} introduces a
+two-stage approach to investigate whether economic and technology
+determinants can accurately predict the Bitcoin exchange rate. In the
+first stage, artificial neural networks and random forests are employed
+as nonlinear feature selection methods to identify and prioritize key
+predictors from economic and technology factors. In the second stage,
+these selected predictors are integrated into a long short-term memory
+(LSTM) model to forecast the Bitcoin exchange rate without relying on
+historical exchange rate data. The results demonstrate that LSTM,
+utilizing economic and technology determinants, outperforms traditional
+models such as autoregressive integrated moving average, support vector
+regression, adaptive network fuzzy inference system, and LSTM models
+that depend on past exchange rates. This highlights that economic and
+technology factors are more significant for predicting Bitcoin exchange
+rates than historical exchange rate information. \citep{patel2020}
+introduce a hybrid prediction model for cryptocurrencies, combining LSTM
+and GRU networks, specifically applied to Litecoin and Monero. The
+results show that our approach achieves highly accurate price
+predictions, demonstrating its potential for broader use in forecasting
+the prices of various cryptocurrencies. This suggests that the model
+could be a valuable tool for understanding and predicting cryptocurrency
+market trends. \citep{zhang2021} propose a model that is built around
+three key modules designed to enhance cryptocurrency price prediction.
+First, the Attentive Memory module integrates a Gated Recurrent Unit
+(GRU) with a self-attention mechanism, allowing the model to focus on
+the most relevant parts of each input sequence. Second, the Channel-wise
+Weighting module analyzes the prices of major cryptocurrencies, learning
+their relationships by dynamically adjusting the importance of each
+sequence. Finally, the Convolution \& Pooling module captures local
+patterns in the data, improving the model's ability to generalize. To
+test its effectiveness, the authors ran a series of experiments, which
+demonstrated that their model outperforms existing baseline methods in
+terms of prediction error, accuracy, and profitability, achieving
+state-of-the-art results. \citep{nouira2024} explore recent advancements
+in machine learning and deep learning techniques used for predicting
+cryptocurrency prices, as highlighted in highly regarded publications.
+By focusing on the latest research, the authors analyze how these models
+leverage social network data to forecast cryptocurrency trends. The
+findings reveal a notable shift in the field, with deep learning methods
+increasingly surpassing traditional machine learning approaches in
+cryptocurrency price prediction. The study of \citep{vieitez2024}
+develops prediction models for Ethereum (ETH) prices using Gated
+Recurrent Unit (GRU) and Long Short-Term Memory (LSTM) networks,
+alongside a Support Vector Machine (SVM) for trend classification.
+Sentiment analysis is incorporated to assess its impact, though it shows
+minimal influence on results. Two innovative knowledge-based investment
+strategies are designed and tested across different time periods using
+real market data. The findings reveal that these models can achieve a
+profit factor of up to 5.16 with limited trading activity, demonstrating
+their reliability and potential for generating returns in the current
+cryptocurrency market.
+
+\begin{center}\includegraphics[width=0.85\linewidth]{Colloque_files/figure-latex/unnamed-chunk-2-1} \end{center}
 
 \section*{Acknowledgement(s)}\label{acknowledgements}
 \addcontentsline{toc}{section}{Acknowledgement(s)}
@@ -189,12 +229,6 @@ version} before any Notes or References.
 \section*{Disclosure statement}\label{disclosure-statement}
 \addcontentsline{toc}{section}{Disclosure statement}
 
-An unnumbered section,
-e.g.~\texttt{\textbackslash{}section*\{Disclosure\ statement\}}, may be
-used to declare any potential conflict of interest and included \emph{in
-the non-anonymous version} before any Notes or References, after any
-Acknowledgements and before any Funding information.
-
 \section*{Funding}\label{funding}
 \addcontentsline{toc}{section}{Funding}
 
@@ -206,33 +240,11 @@ version} before any Notes or References.
 \section*{Notes on contributor(s)}\label{notes-on-contributors}
 \addcontentsline{toc}{section}{Notes on contributor(s)}
 
-An unnumbered section,
-e.g.~\texttt{\textbackslash{}section*\{Notes\ on\ contributors\}}, may
-be included \emph{in the non-anonymous version} if required. A
-photograph may be added if requested.
-
 \section*{Nomenclature/Notation}\label{nomenclaturenotation}
 \addcontentsline{toc}{section}{Nomenclature/Notation}
 
-An unnumbered section,
-e.g.~\texttt{\textbackslash{}section*\{Nomenclature\}} (or
-\texttt{\textbackslash{}section*\{Notation\}}), may be included if
-required, before any Notes or References.
-
 \section*{Notes}\label{notes}
 \addcontentsline{toc}{section}{Notes}
-
-An unnumbered \texttt{Notes} section may be included before the
-References (if using the \texttt{endnotes} package, use the command
-\texttt{\textbackslash{}theendnotes} where the notes are to appear,
-instead of creating a \texttt{\textbackslash{}section*}).
-
-\section{References}\label{references}
-
-\subsection{References cited in the
-text}\label{references-cited-in-the-text}
-
-\subsection{The list of references}\label{the-list-of-references}
 
 \bibliographystyle{tfcad}
 \bibliography{interactcadsample.bib}
