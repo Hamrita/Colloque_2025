@@ -231,7 +231,77 @@ analyzes Bitcoin's price movements as a benchmark for other
 cryptocurrencies, and Change Point Detection (CPD) using Pruned Exact
 Linear Time (PELT) to identify sudden price shifts. Additionally,
 sentiment analysis of news data is performed using the Vader algorithm
-to further improve forecasting precision.
+to further improve forecasting precision. The study of
+\citep{hafidi2025} presents a novel method that automates hyperparameter
+tuning, boosting accuracy by analyzing intricate relationships between
+cryptocurrencies. Using advanced deep learning tools like RNNs and
+LSTMs, combined with Genetic Algorithms (GA), the approach optimizes
+model performance. Two architectures, LAO and LOEE, are introduced and
+compared to tackle the volatility and complexity of cryptocurrency
+markets. By streamlining hyperparameter selection and exploring
+cryptocurrency interconnections, it delivers a reliable solution for
+predicting prices in a fast-changing market.
+
+\section{Methodology}\label{methodology}
+
+In this section, we outline the steps taken during the research and
+modeling phases. We then present the results of our predictive framework
+for BTC price, followed by a comprehensive evaluation of performance and
+research insights.
+
+The aim of this study is to leverage advanced deep learning
+techniques---such as LSTM, GRU, and LSTM-GRU - to forecast the prices of
+BTC. To achieve this, we follow a structured process: (1) collecting
+historical price data for BTC; (2) visualizing the data to uncover
+patterns; (3) splitting the data into training and testing sets; (4)
+training the three deep learning models; (5) validating the models; and
+(6) comparing the performance of each method to identify the most
+effective approach.
+
+\subsection{Dataset}\label{dataset}
+
+\subsection{Recurrent neural networks}\label{recurrent-neural-networks}
+
+Recurrent Neural Networks (RNNs) have the unique ability to understand
+complex, short-term relationships in time series data. There are two
+main types of RNNs: fully connected and partially connected. The first
+RNN was created by \citep{williams1989} in the late 1980s, during a
+period when interest in neural network architectures was on the rise,
+leading to many significant advancements in this field.
+
+\subsubsection{LSTM model}\label{lstm-model}
+
+Long Short Term Memory networks, often referred to as LSTMs, are a
+specific type of Recurrent Neural Network (RNN) designed to learning
+long-term dependencies in data. They were first introduced by
+\citep{hochreiter97} and have since been further developed and embraced
+by many researchers in the field. LSTMs have proven to be highly
+effective across a wide range of applications, which has contributed to
+their popularity today. LSTM are an evolved form of traditional RNNs.
+They are specifically engineered to manage the challenges that arise
+with long-term dependencies, effectively addressing the vanishing
+gradient issue by incorporating a mechanism that helps retain
+information over extended periods \citep{hochreiter97}. Essentially, the
+LSTM architecture consists of several interconnected memory blocks that
+function as recurrent sub-networks. These memory blocks play a crucial
+role in both preserving the network's state over time and controlling
+the flow of information between the cells. In Figure 8, you can see the
+structure of an LSTM block, which includes the input signal \(x_t\), the
+output \(h_t\), and the activation function. The input gate is key in
+deciding which pieces of information should be stored in the cell state,
+while the output gate determines what information should be released
+from the cell state. The forward training process of an LSTM network can
+be outlined with the following equations: \begin{equation}
+i_t=\sigma\left(W_i . [h_{t-1}, x_t]+b_i \right)
+\end{equation} \begin{equation}
+f_t=\sigma\left(W_f . [h_{t-1}, x_t]+b_t \right)
+\end{equation} \begin{equation}
+c_t=f_t * c_{t-1}+i_t * \tanh\left(W_c . [h_{t-1}, x_t] +b_c \right)
+\end{equation} \begin{equation}
+o_t= \sigma\left(W_o . [h_{t-1}, x_t]+b_o \right)
+\end{equation} \begin{equation}
+h_t=o_t*\tanh(c_t)
+\end{equation}
 
 \begin{center}\includegraphics[width=0.85\linewidth]{Colloque_files/figure-latex/unnamed-chunk-2-1} \end{center}
 
