@@ -30,9 +30,21 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
+% From pandoc table feature
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
 
 
 \usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue, citecolor=blue}
 \usepackage[utf8]{inputenc}
 \def\tightlist{}
 
@@ -47,7 +59,7 @@ series forecasting}
 
 
 \author{\name{Wiem Ben Romdhane$^{a}$, Heni Boubaker$^{a}$}
-\affil{$^{a}$LaREMFIQ, IHEC Sousse, Tunisia.}
+\affil{$^{a}$LaREMFiQ, IHEC Sousse, Tunisia.}
 }
 
 
@@ -249,16 +261,153 @@ modeling phases. We then present the results of our predictive framework
 for BTC price, followed by a comprehensive evaluation of performance and
 research insights.
 
-The aim of this study is to leverage advanced deep learning
-techniques---such as LSTM, GRU, and LSTM-GRU - to forecast the prices of
-BTC. To achieve this, we follow a structured process: (1) collecting
-historical price data for BTC; (2) visualizing the data to uncover
-patterns; (3) splitting the data into training and testing sets; (4)
-training the three deep learning models; (5) validating the models; and
-(6) comparing the performance of each method to identify the most
-effective approach.
+The aim of this study is to leverage advanced deep learning techniques
+--- such as LSTM, GRU, and LSTM-GRU - to forecast the prices of BTC. To
+achieve this, we follow a structured process: (1) collecting historical
+price data for BTC; (2) visualizing the data to uncover patterns; (3)
+splitting the data into training and testing sets; (4) training the
+three deep learning models; (5) validating the models; and (6) comparing
+the performance of each method to identify the most effective approach.
 
 \subsection{Dataset}\label{dataset}
+
+For this study, the main emphasis is on analyzing the historical closing
+price data of the BTC close price. This data is obtained from Yahoo
+Finance. The closing price is a key indicator in financial time series
+analysis, as it plays a significant role in forecasting and
+understanding market trends. The closing price is a vital piece of
+information widely utilized by investors, analysts, and traders to gauge
+market trends and make well-informed decisions. It plays a central role
+in many technical analysis methods and is frequently used to compute
+moving averages, oscillators, and other financial metrics. These tools,
+in turn, help shape trading strategies and guide decisions related to
+portfolio management. Essentially, the closing price acts as a essential
+element for understanding market behavior and planning investment
+actions.
+
+The data collection process gathers as much historical closing price
+data as possible for the BTC close price spanning from January, 06, 2016
+to February, 20, 2025. The \autoref{fig:BTC} represents the graph of
+Bitcoin's (BTC) closing price typically illustrates the cryptocurrency's
+price movements over a specific period, showcasing its volatility and
+trends. Data summary table for BTC is given in \autoref{tab:table}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.85\linewidth]{Colloque_files/figure-latex/BTC-1} 
+
+}
+
+\caption{BTC close price series}\label{fig:BTC}
+\end{figure}
+
+\subsection{Pre-processing techniques}\label{pre-processing-techniques}
+
+To prepare the BTC close price data for deep learning analysis, we
+applied several pre-processing steps. First, we reshaped the data to
+make it compatible with advanced neural network models like LSTM, GRU,
+and LSTM-GRU.
+
+Then, we split the data into training and testing sets using an 80:20
+ratio. This approach maintained the continuity of features for the BTC
+price, ensuring that the models could learn from a coherent dataset
+while being evaluated on a separate, unseen portion. These steps
+collectively ensured the data was well-prepared for robust and reliable
+deep learning analysis.
+
+Finally, normalization was a crucial step to ensure the model's accuracy
+and prevent bias. To handle the issue of variables with different
+scales, we applied feature-wise normalization using MinMax Scaling,
+which recent studies have shown to significantly improve model
+performance \citep{ahsan2021}. This technique helped standardize the
+data, making it easier for the models to learn patterns effectively.
+
+\begin{longtable}[]{@{}llll@{}}
+\caption{Descriptive statistics of BTC close price}\tabularnewline
+\toprule\noalign{}
+& All data & Training data & Test data \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+& All data & Training data & Test data \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+nbr.val & 3334.000 & 2667.000 & 667.000 \\
+min & 364.331 & 364.331 & 25124.677 \\
+max & 106146.263 & 67566.830 & 106146.263 \\
+range & 105781.932 & 67202.499 & 81021.586 \\
+sum & 78528495.741 & 41585466.996 & 36943028.745 \\
+median & 11596.294 & 9043.940 & 58254.010 \\
+mean & 23553.838 & 15592.601 & 55386.850 \\
+SE.mean & 416.957 & 316.925 & 916.086 \\
+std.dev & 24075.429 & 16366.962 & 23659.149 \\
+coef.var & 1.022 & 1.050 & 0.427 \\
+skewness & 1.242 & 1.286 & 0.459 \\
+kurtosis & 0.945 & 0.593 & -0.800 \\
+\end{longtable}
+
+\subsection{Hyperparameter tuning}\label{hyperparameter-tuning}
+
+Hyperparameter tuning using random search optimization for LSTM (Long
+Short-Term Memory) and GRU (Gated Recurrent Unit) models in time series
+prediction involves systematically exploring a predefined hyperparameter
+space to identify the optimal configuration that maximizes model
+performance. Key hyperparameters include the number of layers, hidden
+units, learning rate, batch size, dropout rate, and sequence length.
+Unlike grid search, random search randomly samples combinations of these
+hyperparameters from the specified ranges, which is more computationally
+efficient and often yields competitive results. For LSTM and GRU models,
+the process begins by defining the search space for each hyperparameter,
+followed by training and evaluating multiple model instances with
+different configurations using a validation set or cross-validation.
+Performance metrics such as Mean Squared Error (MSE) or Mean Absolute
+Error (MAE) are used to assess the models. The best-performing
+configuration is then selected for final training and testing time
+series data. This approach balances exploration and computational cost,
+making it suitable for optimizing complex recurrent neural networks like
+LSTM and GRU.
+
+\begin{longtable}[]{@{}ll@{}}
+\caption{Hyperparameter space}\tabularnewline
+\toprule\noalign{}
+Hyperparameter & Range/Values \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+Hyperparameter & Range/Values \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Number of layers & 1 to 4 (integer) \\
+Number of units & 1 to 10 (integer) \\
+Learning rate & 0.0001, to 0.01 (Logarithmic scale) \\
+Batch size & 16 to 1024 ( Powers of 2) \\
+Dropout rate & 0.1 to 0.6 (Increments of 0.1) \\
+Sequence length & 1 to 60 (integer) \\
+\end{longtable}
+
+\begin{longtable}[]{@{}llll@{}}
+\caption{Best Hyperparameters}\tabularnewline
+\toprule\noalign{}
+Hyperparameter & LSTM & GRU & LSTM-GRU \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+Hyperparameter & LSTM & GRU & LSTM-GRU \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Number of layers & & & \\
+Number of units & & & \\
+Learning rate & & & \\
+Batch size & & & \\
+Dropout rate & & & \\
+Sequence length & & & \\
+\end{longtable}
 
 \subsection{Recurrent neural networks}\label{recurrent-neural-networks}
 
@@ -267,7 +416,8 @@ complex, short-term relationships in time series data. There are two
 main types of RNNs: fully connected and partially connected. The first
 RNN was created by \citep{williams1989} in the late 1980s, during a
 period when interest in neural network architectures was on the rise,
-leading to many significant advancements in this field.
+leading to many significant advancements in this field. The second type
+of RNN is introduced in 2014 by \citep{chung2014}.
 
 \subsubsection{LSTM model}\label{lstm-model}
 
@@ -285,44 +435,73 @@ information over extended periods \citep{hochreiter97}. Essentially, the
 LSTM architecture consists of several interconnected memory blocks that
 function as recurrent sub-networks. These memory blocks play a crucial
 role in both preserving the network's state over time and controlling
-the flow of information between the cells. In Figure 8, you can see the
-structure of an LSTM block, which includes the input signal \(x_t\), the
-output \(h_t\), and the activation function. The input gate is key in
-deciding which pieces of information should be stored in the cell state,
-while the output gate determines what information should be released
-from the cell state. The forward training process of an LSTM network can
-be outlined with the following equations: \begin{equation}
-i_t=\sigma\left(W_i . [h_{t-1}, x_t]+b_i \right)
-\end{equation} \begin{equation}
-f_t=\sigma\left(W_f . [h_{t-1}, x_t]+b_t \right)
-\end{equation} \begin{equation}
-c_t=f_t * c_{t-1}+i_t * \tanh\left(W_c . [h_{t-1}, x_t] +b_c \right)
-\end{equation} \begin{equation}
-o_t= \sigma\left(W_o . [h_{t-1}, x_t]+b_o \right)
-\end{equation} \begin{equation}
-h_t=o_t*\tanh(c_t)
-\end{equation}
+the flow of information between the cells. In
+\autoref{fig:figlstm}\footnote{Source: \citep{KILIC2023}}, you can see
+the structure of an LSTM block, which includes the input signal \(x_t\),
+the output \(h_t\), and the activation function. The input gate is key
+in deciding which pieces of information should be stored in the cell
+state, while the output gate determines what information should be
+released from the cell state. The forward training process of an LSTM
+network can be outlined with the following equations: \begin{align}
+i_t  =  & \sigma\left(W_i [h_{t-1}, x_t]+b_i \right)\\
+f_t  = &  \sigma\left(W_f [h_{t-1}, x_t]+b_t \right) \\
+c_t  = & f_t \odot c_{t-1}+i_t \odot \tanh\left(W_c \odot [h_{t-1}, x_t] +b_c \right) \\
+o_t  = &  \sigma\left(W_o [h_{t-1}, x_t]+b_o \right) \\
+h_t  = &  o_t\odot \tanh(c_t)
+\end{align} \newline
 
-\begin{center}\includegraphics[width=0.85\linewidth]{Colloque_files/figure-latex/unnamed-chunk-2-1} \end{center}
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{lstm} 
+
+}
+
+\caption{Structure of LSTM cell}\label{fig:figlstm}
+\end{figure}
+
+\subsection{Gated Recurrent Units
+(GRU)}\label{gated-recurrent-units-gru}
+
+Gated Recurrent Units (GRU) are a type of Recurrent Neural Network (RNN)
+introduced by \citep{chung2014} as a more efficient alternative to
+traditional LSTM networks. Similar to LSTM, GRU are capable of handling
+input sequences of varying lengths and maintaining a state that captures
+past information. However, GRU simplify the architecture by using only
+two gates; an update gate to determine what information to keep and a
+reset gate to decide what information to forget. This streamlined design
+makes GRU less complex and faster to train compared to LSTM, which rely
+on multiple gates and an internal memory cell. Despite their simplicity,
+GRU often deliver comparable performance to LSTM across many tasks
+\citep{yang2020}, making them a popular choice for sequence modeling.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{GRU} 
+
+}
+
+\caption{Structure of GRU cell}\label{fig:figgru}
+\end{figure}
+
+\autoref{fig:figgru}\footnote{Source: \citep{vasilev2019}} represent the
+diagram of GRU cell. The hidden state at time \(t\), denoted as \(h_t\),
+is computed using the input at time \(t\), \(x_t\), and the previous
+hidden state, \(h_{t-1}\), through the following equations
+\citep{dey2017}: \begin{align}
+z_t= & \sigma\left(W_z x_t+U_z h_{t-1}+b_z \right)\\
+r_t= & \sigma\left(W_r x_t+U_rh_{t-1}+b_r \right)\\
+\widehat{h}_t= & \phi\left(W_hx_t+U_h(r_t \odot h_{t-1})+b_r \right)\\
+h_t= & (1-z_t)\odot h_{t-1}+z_t \odot \widehat{h}_{t}
+\end{align}
 
 \section*{Acknowledgement(s)}\label{acknowledgements}
 \addcontentsline{toc}{section}{Acknowledgement(s)}
-
-An unnumbered section,
-e.g.~\texttt{\textbackslash{}section*\{Acknowledgements\}}, may be used
-for thanks, etc.~if required and included \emph{in the non-anonymous
-version} before any Notes or References.
 
 \section*{Disclosure statement}\label{disclosure-statement}
 \addcontentsline{toc}{section}{Disclosure statement}
 
 \section*{Funding}\label{funding}
 \addcontentsline{toc}{section}{Funding}
-
-An unnumbered section,
-e.g.~\texttt{\textbackslash{}section*\{Funding\}}, may be used for grant
-details, etc.~if required and included \emph{in the non-anonymous
-version} before any Notes or References.
 
 \section*{Notes on contributor(s)}\label{notes-on-contributors}
 \addcontentsline{toc}{section}{Notes on contributor(s)}

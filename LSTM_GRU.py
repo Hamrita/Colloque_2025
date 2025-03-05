@@ -2,12 +2,10 @@
 #       LSTM-GRU model                #
 #######################################
 
-# simulated data
-n = 1000
-time = np.arange(n)
-data = np.sin(2 * np.pi * time / 50) + np.random.normal(0, 0.2, n)
-
 # Prepare data for time series forecasting
+
+data=r.BTC
+
 lookback = 20  # Number of previous time steps to use for prediction
 delay = 1      # Number of time steps ahead to predict
 

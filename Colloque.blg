@@ -1,0 +1,47 @@
+This is BibTeX, Version 0.99d (TeX Live 2024)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Colloque.aux
+The style file: tfcad.bst
+Database file #1: interactcadsample.bib
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+You've used 24 entries,
+            3348 wiz_defined-function locations,
+            827 strings with 10553 characters,
+and the built_in function-call counts, 15799 in all, are:
+= -- 1286
+> -- 771
+< -- 0
++ -- 369
+- -- 218
+* -- 1130
+:= -- 2335
+add.period$ -- 108
+call.type$ -- 24
+change.case$ -- 187
+chr.to.int$ -- 25
+cite$ -- 24
+duplicate$ -- 1219
+empty$ -- 1187
+format.name$ -- 261
+if$ -- 3230
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 244
+newline$ -- 79
+num.names$ -- 72
+pop$ -- 604
+preamble$ -- 1
+purify$ -- 179
+quote$ -- 0
+skip$ -- 457
+stack$ -- 0
+substring$ -- 683
+swap$ -- 581
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 142
+warning$ -- 0
+while$ -- 106
+width$ -- 0
+write$ -- 275

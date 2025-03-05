@@ -1,0 +1,79 @@
+\begin{thebibliography}{24}
+\newcommand{\enquote}[1]{``#1''}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\normalfont{#1}}
+\providecommand{\urlprefix}{}
+
+\bibitem[Ahsan et~al.(2021)]{ahsan2021}
+Ahsan, Md~Manjurul, MA~Parvez Mahmud, Pritom~Kumar Saha, Kishor~Datta Gupta, and Zahed Siddique. 2021. ``Effect of data scaling methods on machine learning algorithms and model performance.'' \emph{Technologies} 9 (3): 52.
+
+\bibitem[Andrianto and Diputra(2017)]{andrianto17}
+Andrianto, Yanuar, and Yoda Diputra. 2017. ``The effect of cryptocurrency on investment portfolio effectiveness.'' \emph{Journal of finance and accounting} 5 (6): 229--238.
+
+\bibitem[Chen et~al.(2021)]{chen2021}
+Chen, Wei, Huilin Xu, Lifen Jia, and Ying Gao. 2021. ``Machine learning model for Bitcoin exchange rate prediction using economic and technology determinants.'' \emph{International Journal of Forecasting} 37 (1): 28--43.
+
+\bibitem[Chowdhury et~al.(2020)]{chowdhury20}
+Chowdhury, Reaz, M~Arifur Rahman, M~Sohel Rahman, and MRC Mahdy. 2020. ``An approach to predict and forecast the price of constituents and index of cryptocurrency using machine learning.'' \emph{Physica A: Statistical Mechanics and its Applications} 551: 124569.
+
+\bibitem[Chung et~al.(2014)]{chung2014}
+Chung, Junyoung, Caglar Gulcehre, KyungHyun Cho, and Yoshua Bengio. 2014. ``Empirical evaluation of gated recurrent neural networks on sequence modeling.'' \emph{arXiv preprint arXiv:1412.3555} .
+
+\bibitem[Derbentsev et~al.(2021)]{derbentsev21}
+Derbentsev, V, V~Babenko, KIRILL Khrustalev, S~Khrustalova, and H~Obruch. 2021. ``Comparative performance of machine learning ensemble algorithms for forecasting cryptocurrency prices.'' \emph{International Journal of Engineering, Transactions A: Basics} 34 (1): 140--148.
+
+\bibitem[Dey and Salem(2017)]{dey2017}
+Dey, Rahul, and Fathi~M Salem. 2017. ``Gate-variants of gated recurrent unit (GRU) neural networks.'' In \emph{2017 IEEE 60th international midwest symposium on circuits and systems (MWSCAS)}, 1597--1600. IEEE.
+
+\bibitem[Hafidi et~al.(2025)]{hafidi2025}
+Hafidi, Nasreddine, Zakaria Khoudi, Mourad Nachaoui, and Soufian Lyaqini. 2025. ``Cryptocurrency Price Prediction with Genetic Algorithm-based Hyperparameter Optimization.'' \emph{Statistics, Optimization \& Information Computing} .
+
+\bibitem[Hitam et~al.(2021)]{hitam2021}
+Hitam, Nor~Azizah, Amelia~Ritahani Ismail, Ruhaidah Samsudin, and Eman~H Alkhammash. 2021. ``The effect of Kernel functions on cryptocurrency prediction using support vector machines.'' In \emph{International Conference of Reliable Information and Communication Technology}, 319--332. Springer.
+
+\bibitem[Hochreiter and Schmidhuber(1997)]{hochreiter97}
+Hochreiter, Sepp, and Jürgen Schmidhuber. 1997. ``Long Short-Term Memory.'' \emph{Neural Computation} 9 (8): 1735--1780. https://doi.org/{10.1162/neco.1997.9.8.1735}.
+
+\bibitem[Kumar~T et~al.(2023)]{kumar23}
+Kumar~T, Vijaya, S.~Santhi, K.~G. Shanthi, and Gokila M. 2023. ``Cryptocurrency Price Prediction using LSTM and Recurrent Neural Networks.'' In \emph{2023 2nd International Conference on Applied Artificial Intelligence and Computing (ICAAIC)}, 1--5.
+
+\bibitem[Kılıç and Ömür Uğur(2023)]{KILIC2023}
+Kılıç, Deniz~Kenan, and Ömür Uğur. 2023. ``Hybrid wavelet-neural network models for time series.'' \emph{Applied Soft Computing} 144: 110469. https://doi.org/{https://doi.org/10.1016/j.asoc.2023.110469}.
+
+\bibitem[Lapitskaya, Eratalay, and Sharma(2024)]{lapitskaya2024}
+Lapitskaya, Darya, M~Hakan Eratalay, and Rajesh Sharma. 2024. ``Prediction of Cryptocurrency Prices with the Momentum Indicators and Machine Learning.'' \emph{Computational Economics} 1--19.
+
+\bibitem[Nasirtafreshi(2022)]{NASIRTAFRESHI2022}
+Nasirtafreshi, I. 2022. ``Forecasting cryptocurrency prices using Recurrent Neural Network and Long Short-term Memory.'' \emph{Data \& Knowledge Engineering} 139: 102009. https://doi.org/{https://doi.org/10.1016/j.datak.2022.102009}.
+
+\bibitem[Nouira, Bouchakwa, and Amara(2024)]{nouira2024}
+Nouira, Ameni~Youssfi, Mariam Bouchakwa, and Marwa Amara. 2024. ``Role of social networks and machine learning techniques in cryptocurrency price prediction: a survey.'' \emph{Social Network Analysis and Mining} 14 (1): 152.
+
+\bibitem[Patel et~al.(2020)]{patel2020}
+Patel, Mohil~Maheshkumar, Sudeep Tanwar, Rajesh Gupta, and Neeraj Kumar. 2020. ``A deep learning-based cryptocurrency price prediction scheme for financial institutions.'' \emph{Journal of information security and applications} 55: 102583.
+
+\bibitem[Saad et~al.(2019)]{saad19}
+Saad, Muhammad, Jinchun Choi, DaeHun Nyang, Joongheon Kim, and Aziz Mohaisen. 2019. ``Toward characterizing blockchain-based cryptocurrencies for highly accurate predictions.'' \emph{IEEE Systems Journal} 14 (1): 321--332.
+
+\bibitem[Seabe, Moutsinga, and Pindza(2023)]{seable23}
+Seabe, Phumudzo~Lloyd, Claude Rodrigue~Bambe Moutsinga, and Edson Pindza. 2023. ``Forecasting Cryptocurrency Prices Using LSTM, GRU, and Bi-Directional LSTM: A Deep Learning Approach.'' \emph{Fractal and Fractional} 7 (2). https://doi.org/{10.3390/fractalfract7020203}.
+
+\bibitem[Shirwaikar et~al.(2025)]{shirwaikar2025}
+Shirwaikar, Rudresh, Sagar Naik, Abiya Pardeshi, Sailee Manjrekar, Yash Shetye, Siddhesh Dhargalkar, and Ritvik Madkaikar. 2025. ``Optimized Deep Learning Framework for Cryptocurrency Price Prediction.'' \emph{SN Computer Science} 6 (1): 67.
+
+\bibitem[Vasilev(2019)]{vasilev2019}
+Vasilev, Ivan. 2019. \emph{Advanced Deep Learning with Python: Design and implement advanced next-generation AI solutions using TensorFlow and PyTorch}. Packt Publishing.  \urlprefix\url{https://books.google.tn/books?id=TxbEDwAAQBAJ}.
+
+\bibitem[Vi{\'e}itez, Santos, and Naranjo(2024)]{vieitez2024}
+Vi{\'e}itez, Adri{\'a}n, Matilde Santos, and Rodrigo Naranjo. 2024. ``Machine learning Ethereum cryptocurrency prediction and knowledge-based investment strategies.'' \emph{Knowledge-Based Systems} 299: 112088.
+
+\bibitem[Williams and Zipser(1989)]{williams1989}
+Williams, Ronald~J, and David Zipser. 1989. ``A learning algorithm for continually running fully recurrent neural networks.'' \emph{Neural computation} 1 (2): 270--280.
+
+\bibitem[Yang, Yu, and Zhou(2020)]{yang2020}
+Yang, Shudong, Xueying Yu, and Ying Zhou. 2020. ``Lstm and gru neural network performance comparison study: Taking yelp review dataset as an example.'' In \emph{2020 International workshop on electronic communication and artificial intelligence (IWECAI)}, 98--101. IEEE.
+
+\bibitem[Zhang et~al.(2021)]{zhang2021}
+Zhang, Zhuorui, Hong-Ning Dai, Junhao Zhou, Subrota~Kumar Mondal, Miguel~Mart{\'\i}nez Garc{\'\i}a, and Hao Wang. 2021. ``Forecasting cryptocurrency price using convolutional neural networks with weighted and attentive memory channels.'' \emph{Expert Systems with Applications} 183: 115378.
+
+\end{thebibliography}
