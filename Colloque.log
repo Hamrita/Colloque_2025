@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.3.8)  9 MAR 2025 02:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.3.8)  10 MAR 2025 00:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -547,21 +547,44 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has
                                                   \__shipout_drop_firstpage_...
 l.494 \end{longtable}
                       <./GRU.png>]
-<LSTM_pred.png, id=255, 417.7206pt x 298.4751pt>
-File: LSTM_pred.png Graphic file (type png)
-<use LSTM_pred.png>
-Package pdftex.def Info: LSTM_pred.png  used on input line 519.
-(pdftex.def)             Requested size: 326.40125pt x 233.22408pt.
+<LSTM1.png, id=255, 371.58826pt x 257.763pt>
+File: LSTM1.png Graphic file (type png)
+<use LSTM1.png>
+Package pdftex.def Info: LSTM1.png  used on input line 519.
+(pdftex.def)             Requested size: 326.40125pt x 226.43095pt.
+<GRU1.png, id=256, 371.58826pt x 257.763pt>
+File: GRU1.png Graphic file (type png)
+<use GRU1.png>
+Package pdftex.def Info: GRU1.png  used on input line 528.
+(pdftex.def)             Requested size: 326.40125pt x 226.43095pt.
 
 
 [9
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.540 \end{longtable}
-                      <./LSTM_pred.png>] (./Colloque.bbl
+l.534 
+       <./LSTM1.png (PNG copy)>]
+<Comb.png, id=264, 371.58826pt x 257.763pt>
+File: Comb.png Graphic file (type png)
+<use Comb.png>
+Package pdftex.def Info: Comb.png  used on input line 537.
+(pdftex.def)             Requested size: 326.40125pt x 226.43095pt.
 
-[10]
+
+[10
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.574 \end{longtable}
+                     
+pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.574 \end{longtable}
+                      <./GRU1.png (PNG copy)> <./Comb.png (PNG copy)>] (./Colloque.bbl
+
+[11]
 Underfull \hbox (badness 10000) in paragraph at lines 41--42
 []\OT1/cmr/m/n/10 K^^Pl^^P^^Xc, Deniz Ke-nan, and []Om^^?ur U^^Ugur. 2023. ``Hy-brid wavelet-neural net-
  []
@@ -588,16 +611,16 @@ Underfull \hbox (badness 3635) in paragraph at lines 59--60
 
 ) (./appendix.tex
 
-[11])
-Underfull \hbox (badness 1082) in paragraph at lines 43--565
+[12])
+Underfull \hbox (badness 1082) in paragraph at lines 43--599
 \OT1/cmr/m/n/10.95 This ar-ti-cle tem-plate, the \OT1/cmtt/m/n/10.95 interact \OT1/cmr/m/n/10.95 class file and the as-so-ci-ated open-source
  []
 
 
 
-[12]
+[13]
 
-[13] (./Colloque.aux)
+[14] (./Colloque.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -613,18 +636,18 @@ Package rerunfilecheck Info: File `Colloque.out' has not changed.
 (rerunfilecheck)             Checksum: 75F1AECB0E168B7F9750D6D350787725;3073.
  ) 
 Here is how much of TeX's memory you used:
- 11765 strings out of 475171
- 181257 string characters out of 5764406
- 588715 words of memory out of 5000000
- 34505 multiletter control sequences out of 15000+600000
+ 11794 strings out of 475171
+ 181593 string characters out of 5764406
+ 588912 words of memory out of 5000000
+ 34530 multiletter control sequences out of 15000+600000
  569687 words of font info for 79 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  87i,9n,93p,545b,591s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Colloque.pdf (13 pages, 385324 bytes).
+Output written on Colloque.pdf (14 pages, 586347 bytes).
 PDF statistics:
- 380 PDF objects out of 1000 (max. 8388607)
- 321 compressed objects within 4 object streams
- 82 named destinations out of 1000 (max. 500000)
- 197 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 388 PDF objects out of 1000 (max. 8388607)
+ 327 compressed objects within 4 object streams
+ 86 named destinations out of 1000 (max. 500000)
+ 207 words of extra memory for PDF output out of 10000 (max. 10000000)
 

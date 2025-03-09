@@ -1,0 +1,177 @@
+---
+title: "LST_GRU"
+output: pdf_document
+date: "2025-03-09"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{python}
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.metrics import mean_squared_error
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import LSTM, GRU, Dense, Dropout
+from tensorflow.keras.optimizers import Adam
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+import yfinance as yf
+```
+
+## Import data
+
+```{python}
+data=yf.download("BTC-USD","2016-1-16","2025-2-20")
+df=data['Close']
+```
+
+```{python}
+#  functions
+def create_dataset(dataset,time_step=1):
+    dataX,dataY=[],[]
+    for i in range(len(dataset)-time_step-1):
+        a=dataset[i:(i+time_step),0]
+        dataX.append(a)
+        dataY.append(dataset[i+time_step,0])
+    return np.array(dataX),np.array(dataY)
+
+
+```
+
+```{python}
+# scale data
+
+scaler=MinMaxScaler(feature_range=(0,1))
+df1=scaler.fit_transform(np.array(df).reshape(-1,1))
+
+training_size=int(len(df1)*0.9)
+test_size=len(df)-training_size
+
+train_data,test_data=df1[0:training_size,:],df1[training_size:len(df1),:1]
+
+time_step=10
+X_train,y_train=create_dataset(train_data,time_step)
+X_test,y_test=create_dataset(test_data,time_step)
+```
+
+```{python}
+lstm_model = Sequential()
+lstm_model.add(LSTM(units=96, return_sequences=True, input_shape=(X_train.shape[1], 1)))
+lstm_model.add(LSTM(units=96, return_sequences=True))
+lstm_model.add(LSTM(units=256))
+lstm_model.add(Dropout(Dropout_rate=0.1))
+lstm_model.add(Dense(units=1))
+lstm_model.compile(optimizer=Adam(learning_rate=0.0003), loss='mean_squared_error')
+lstm_model.fit(X_train, y_train, epochs=100, batch_size=32, validation_data=(X_test, y_test), verbose=0)
+```
+
+```{python}
+lstm_train= lstm_model.predict(X_train)
+lstm_test = lstm_model.predict(X_test)
+train_pred = scaler.inverse_transform(lstm_train.reshape(-1, 1))
+y_train_inverse = scaler.inverse_transform(y_train.reshape(-1, 1))
+test_pred = scaler.inverse_transform(lstm_test.reshape(-1, 1))
+y_test_inverse = scaler.inverse_transform(y_test.reshape(-1, 1))
+```
+
+```{r}
+require(reticulate, quietly = T)
+actual_tr=py$y_train_inverse
+pred_tr=py$train_pred
+actual_tst=py$y_test_inverse
+pred_tst=py$test_pred
+MAPE_tr=Metrics::mape(actual_tr, pred_tr )
+RMSE_tr=Metrics::rmse(actual_tr, pred_tr )
+MAPE_tst=Metrics::mape(actual_tst, pred_tst )
+RMSE_tst=Metrics::rmse(actual_tst, pred_tst )
+RMSE=c(RMSE_tr, RMSE_tst )
+MAPE=c(MAPE_tr, MAPE_tst )*100
+lstm_eval=rbind(RMSE, MAPE)
+colnames(lstm_eval)=c("Train", "Test")
+lstm_eval
+```
+
+```{python}
+fig, axs = plt.subplots(2)
+axs[0].plot(y_train_inverse,label='Actual (Train)')
+axs[0].plot(train_pred, linestyle="dashed", label='Fitted (Train)')
+axs[0].legend()
+axs[1].plot(y_test_inverse,label='Actual (Test)')
+axs[1].plot(test_pred,linestyle="dashed",label='Predicted (Test)')
+axs[1].legend()
+plt.show()
+```
+
+## GRU Model
+
+```{python}
+gru_model = Sequential()
+gru_model.add(GRU(units=100, return_sequences=True, input_shape=(X_train.shape[1], 1)))
+gru_model.add(GRU(units=100, return_sequences=True))
+gru_model.add(GRU(units=100))
+gru_model.add(Dense(units=1))
+gru_model.compile(optimizer=Adam(learning_rate=0.0003), loss='mean_squared_error')
+hist_gru=gru_model.fit(X_train, y_train, epochs=100, batch_size=32, validation_data=(X_test, y_test), verbose=0)
+```
+
+```{python}
+gru_train = gru_model.predict(X_train)
+gru_test = gru_model.predict(X_test)
+
+train_pred_gru = scaler.inverse_transform(gru_train.reshape(-1, 1))
+test_pred_gru = scaler.inverse_transform(gru_test.reshape(-1, 1))
+```
+
+```{r}
+require(reticulate, quietly = T)
+pred_tr_gru=py$train_pred_gru
+actual_tst=py$y_test_inverse
+pred_tst_gru=py$test_pred_gru
+MAPE_tr=Metrics::mape(actual_tr, pred_tr_gru )
+RMSE_tr=Metrics::rmse(actual_tr, pred_tr_gru )
+MAPE_tst=Metrics::mape(actual_tst, pred_tst_gru )
+RMSE_tst=Metrics::rmse(actual_tst, pred_tst_gru )
+RMSE=c(RMSE_tr, RMSE_tst )
+MAPE=c(MAPE_tr, MAPE_tst )*100
+gru_eval=rbind(RMSE, MAPE)
+colnames(gru_eval)=c("Train", "Test")
+gru_eval
+```
+
+```{python}
+fig, axs = plt.subplots(2)
+axs[0].plot(y_train_inverse,label='Actual (Train)')
+axs[0].plot(train_pred_gru, linestyle="dashed", label='Fitted (Train)')
+axs[0].legend()
+axs[1].plot(y_test_inverse,label='Actual (Test)')
+axs[1].plot(test_pred_gru,linestyle="dashed",label='Predicted (Test)')
+axs[1].legend()
+plt.show()
+```
+
+```{python}
+combined_train = np.column_stack((lstm_train, gru_train))
+combined_test = np.column_stack((lstm_test, gru_test))
+blend_model = LinearRegression()
+blend_model.fit(combined_train, y_train)
+blend_model.fit(combined_test, y_test)
+train_predict=blend_model.predict(combined_train)
+test_predict=blend_model.predict(combined_test)
+train_predictions = scaler.inverse_transform(train_predict.reshape(-1, 1))
+test_predictions = scaler.inverse_transform(test_predict.reshape(-1, 1))
+```
+
+```{python}
+fig, axs = plt.subplots(2)
+axs[0].plot(y_train_inverse,label='Actual (Train)')
+axs[0].plot(train_predictions , linestyle="dashed", label='Fitted (Train)')
+axs[0].legend()
+axs[1].plot(y_test_inverse,label='Actual (Test)')
+axs[1].plot(test_predictions,linestyle="dashed",label='Predicted (Test)')
+axs[1].legend()
+plt.show()
+```

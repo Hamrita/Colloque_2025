@@ -516,11 +516,29 @@ steps.
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.8\linewidth]{LSTM_pred} 
+{\centering \includegraphics[width=0.8\linewidth]{LSTM1} 
 
 }
 
 \caption{Actual and predicted results using the LSTM model.}\label{fig:unnamed-chunk-3}
+\end{figure}
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=0.8\linewidth]{GRU1} 
+
+}
+
+\caption{Actual and predicted results using the GRU model.}\label{fig:unnamed-chunk-4}
+\end{figure}
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=0.8\linewidth]{Comb} 
+
+}
+
+\caption{Actual and predicted results using the combined model.}\label{fig:unnamed-chunk-5}
 \end{figure}
 
 \begin{longtable}[]{@{}lll@{}}
@@ -535,8 +553,24 @@ steps.
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-RMSE & 968.292 & 4298.384 \\
-MAPE & 7.210 & 4.170 \\
+RMSE & 1012.523 & 3094.4970 \\
+MAPE (\%) & 14.961 & 3.0135 \\
+\end{longtable}
+
+\begin{longtable}[]{@{}lll@{}}
+\caption{Performance results for the GRU model}\tabularnewline
+\toprule\noalign{}
+& Train data & Test data \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+& Train data & Test data \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+RMSE & 1027.657 & 2224.180 \\
+MAPE (\%) & 9.020 & 2.471 \\
 \end{longtable}
 
 \section*{Acknowledgement(s)}\label{acknowledgements}

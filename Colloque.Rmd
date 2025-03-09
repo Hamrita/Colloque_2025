@@ -407,17 +407,33 @@ Where $p_i$ represents the predicted value, $a_i$ denotes the actual value, and 
 # Results
 
 ```{r,echo=FALSE, out.width="80%", fig.cap="Actual and predicted results using the LSTM model.", fig.align='center', fig.pos='H'}
-knitr::include_graphics('LSTM_pred.png')
+knitr::include_graphics('LSTM1.png')
+```
+
+```{r,echo=FALSE, out.width="80%", fig.cap="Actual and predicted results using the GRU model.", fig.align='center', fig.pos='H'}
+knitr::include_graphics('GRU1.png')
+```
+
+```{r,echo=FALSE, out.width="80%", fig.cap="Actual and predicted results using the combined model.", fig.align='center', fig.pos='H'}
+knitr::include_graphics('Comb.png')
 ```
 
 ```{r, echo=FALSE}
-'Train data'=c(968.292, 7.210)
-'Test data'=c(4298.384, 4.170)
+'Train data'=c(1012.523, 14.961)
+'Test data'=c(3094.497, 3.0135)
 tt=cbind(`Train data`,`Test data`)
 row.names(tt)=c( "RMSE", "MAPE (%)")
 knitr::kable(tt, caption = "Performance results for the LSTM model", align = "l")
 ```
 
+
+```{r, echo=FALSE}
+'Train data'=c(1027.657, 9.020)
+'Test data'=c(2224.180, 2.471)
+tt1=cbind(`Train data`,`Test data`)
+row.names(tt1)=c( "RMSE", "MAPE (%)")
+knitr::kable(tt1, caption = "Performance results for the GRU model", align = "l")
+```
 
 
 ```{r, echo=FALSE, eval=FALSE}
