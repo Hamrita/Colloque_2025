@@ -47,6 +47,7 @@
 \hypersetup{colorlinks=true,linkcolor=blue, citecolor=blue}
 \usepackage[utf8]{inputenc}
 \def\tightlist{}
+\usepackage{float}
 
 
 \begin{document}
@@ -513,9 +514,30 @@ steps.
 
 \section{Results}\label{results}
 
-\begin{figure}
-\includegraphics[width=0.6\linewidth]{LSTM_pred} \caption{Actual and predicted results using the LSTM model.}\label{fig:unnamed-chunk-3}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=0.8\linewidth]{LSTM_pred} 
+
+}
+
+\caption{Actual and predicted results using the LSTM model.}\label{fig:unnamed-chunk-3}
 \end{figure}
+
+\begin{longtable}[]{@{}lll@{}}
+\caption{Performance results for the LSTM model}\tabularnewline
+\toprule\noalign{}
+& Train data & Test data \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+& Train data & Test data \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+RMSE & 968.292 & 4298.384 \\
+MAPE & 7.210 & 4.170 \\
+\end{longtable}
 
 \section*{Acknowledgement(s)}\label{acknowledgements}
 \addcontentsline{toc}{section}{Acknowledgement(s)}

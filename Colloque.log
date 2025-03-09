@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.3.8)  9 MAR 2025 01:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.3.8)  9 MAR 2025 02:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -384,31 +384,38 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 47.
 Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks33
 \inpenc@posthook=\toks34
+) (c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count320
+\float@exts=\toks35
+\float@box=\box63
+\@float@everytoks=\toks36
+\@floatcapt=\box64
 ) (c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count320
-\l__pdf_internal_box=\box63
+\l__color_backend_stack_int=\count321
+\l__pdf_internal_box=\box65
 ) (./Colloque.aux)
 \openout1 = `Colloque.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -450,37 +457,37 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
 (c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx))
-Package hyperref Info: Link coloring ON on input line 52.
+Package hyperref Info: Link coloring ON on input line 53.
 (./Colloque.out) (./Colloque.out)
 \@outlinefile=\write3
 \openout3 = `Colloque.out'.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <13> not available
-(Font)              size <12> substituted on input line 67.
+(Font)              size <12> substituted on input line 68.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <13> not available
-(Font)              size <12> substituted on input line 67.
+(Font)              size <12> substituted on input line 68.
 
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 67.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 68.
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 67.
+(Font)              size <5> substituted on input line 68.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
-(Font)              size <5> substituted on input line 67.
+(Font)              size <5> substituted on input line 68.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 67.
+(Font)              size <5> substituted on input line 68.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 67.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 68.
 (c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 67.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 68.
 (c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -495,24 +502,29 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 [3]
 
-LaTeX Warning: Reference `tab:table' on page 4 undefined on input line 293.
+LaTeX Warning: Reference `tab:table' on page 4 undefined on input line 294.
 
 <Colloque_files/figure-latex/BTC-1.pdf, id=165, 469.755pt x 325.215pt>
 File: Colloque_files/figure-latex/BTC-1.pdf Graphic file (type pdf)
 <use Colloque_files/figure-latex/BTC-1.pdf>
-Package pdftex.def Info: Colloque_files/figure-latex/BTC-1.pdf  used on input line 297.
+Package pdftex.def Info: Colloque_files/figure-latex/BTC-1.pdf  used on input line 298.
 (pdftex.def)             Requested size: 346.80249pt x 240.09457pt.
 
 
-[4] [5 <./Colloque_files/figure-latex/BTC-1.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 390--391
+[4] [5
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.350 \end{longtable}
+                      <./Colloque_files/figure-latex/BTC-1.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 391--392
 
  []
 
 <lstm.jpg, id=202, 372.22247pt x 195.7046pt>
 File: lstm.jpg Graphic file (type jpg)
 <use lstm.jpg>
-Package pdftex.def Info: lstm.jpg  used on input line 394.
+Package pdftex.def Info: lstm.jpg  used on input line 395.
 (pdftex.def)             Requested size: 306.0pt x 160.88492pt.
 
 
@@ -520,19 +532,36 @@ Package pdftex.def Info: lstm.jpg  used on input line 394.
 <GRU.png, id=227, 321.45094pt x 252.945pt>
 File: GRU.png Graphic file (type png)
 <use GRU.png>
-Package pdftex.def Info: GRU.png  used on input line 418.
+Package pdftex.def Info: GRU.png  used on input line 419.
 (pdftex.def)             Requested size: 306.0pt x 240.79428pt.
 
 
-[7 <./lstm.jpg>] [8 <./GRU.png>]
+[7
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.457 
+       <./lstm.jpg>] [8
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.494 \end{longtable}
+                      <./GRU.png>]
 <LSTM_pred.png, id=255, 417.7206pt x 298.4751pt>
 File: LSTM_pred.png Graphic file (type png)
 <use LSTM_pred.png>
-Package pdftex.def Info: LSTM_pred.png  used on input line 517.
-(pdftex.def)             Requested size: 244.80249pt x 174.91919pt.
-(./Colloque.bbl
+Package pdftex.def Info: LSTM_pred.png  used on input line 519.
+(pdftex.def)             Requested size: 326.40125pt x 233.22408pt.
 
-[9]
+
+[9
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.540 \end{longtable}
+                      <./LSTM_pred.png>] (./Colloque.bbl
+
+[10]
 Underfull \hbox (badness 10000) in paragraph at lines 41--42
 []\OT1/cmr/m/n/10 K^^Pl^^P^^Xc, Deniz Ke-nan, and []Om^^?ur U^^Ugur. 2023. ``Hy-brid wavelet-neural net-
  []
@@ -543,8 +572,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--42
  []
 
 
-
-[10 <./LSTM_pred.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 59--60
 []\OT1/cmr/m/n/10 Seabe, Phu-mudzo Lloyd, Claude Ro-drigue Bambe Moutsinga, and Ed-son
  []
@@ -562,13 +589,15 @@ Underfull \hbox (badness 3635) in paragraph at lines 59--60
 ) (./appendix.tex
 
 [11])
-Underfull \hbox (badness 1082) in paragraph at lines 43--543
+Underfull \hbox (badness 1082) in paragraph at lines 43--565
 \OT1/cmr/m/n/10.95 This ar-ti-cle tem-plate, the \OT1/cmtt/m/n/10.95 interact \OT1/cmr/m/n/10.95 class file and the as-so-ci-ated open-source
  []
 
 
 
-[12] (./Colloque.aux)
+[12]
+
+[13] (./Colloque.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -584,18 +613,18 @@ Package rerunfilecheck Info: File `Colloque.out' has not changed.
 (rerunfilecheck)             Checksum: 75F1AECB0E168B7F9750D6D350787725;3073.
  ) 
 Here is how much of TeX's memory you used:
- 11693 strings out of 475171
- 180132 string characters out of 5764406
- 587262 words of memory out of 5000000
- 34439 multiletter control sequences out of 15000+600000
+ 11765 strings out of 475171
+ 181257 string characters out of 5764406
+ 588715 words of memory out of 5000000
+ 34505 multiletter control sequences out of 15000+600000
  569687 words of font info for 79 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 87i,9n,93p,545b,598s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 87i,9n,93p,545b,591s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Colloque.pdf (12 pages, 384901 bytes).
+Output written on Colloque.pdf (13 pages, 385324 bytes).
 PDF statistics:
- 374 PDF objects out of 1000 (max. 8388607)
- 316 compressed objects within 4 object streams
- 80 named destinations out of 1000 (max. 500000)
+ 380 PDF objects out of 1000 (max. 8388607)
+ 321 compressed objects within 4 object streams
+ 82 named destinations out of 1000 (max. 500000)
  197 words of extra memory for PDF output out of 10000 (max. 10000000)
 

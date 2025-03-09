@@ -26,6 +26,7 @@ header-includes: |
   \hypersetup{colorlinks=true,linkcolor=blue, citecolor=blue}
   \usepackage[utf8]{inputenc}
   \def\tightlist{}
+  \usepackage{float}
 output: rticles::tf_article
 ---
 
@@ -404,9 +405,19 @@ MAPE = \dfrac{100}{n}\sum_{i=1}^n \dfrac{|a_i-p_i|}{ai}
 Where $p_i$ represents the predicted value, $a_i$ denotes the actual value, and $n$ stands for the total number of time steps.
 
 # Results
-```{r,echo=FALSE, out.width="60%", fig.cap="Actual and predicted results using the LSTM model."}
-knitr::include_graphics("LSTM_pred.png")
+
+```{r,echo=FALSE, out.width="80%", fig.cap="Actual and predicted results using the LSTM model.", fig.align='center', fig.pos='H'}
+knitr::include_graphics('LSTM_pred.png')
 ```
+
+```{r, echo=FALSE}
+'Train data'=c(968.292, 7.210)
+'Test data'=c(4298.384, 4.170)
+tt=cbind(`Train data`,`Test data`)
+row.names(tt)=c( "RMSE", "MAPE (%)")
+knitr::kable(tt, caption = "Performance results for the LSTM model", align = "l")
+```
+
 
 
 ```{r, echo=FALSE, eval=FALSE}
