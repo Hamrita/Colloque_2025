@@ -252,7 +252,7 @@ forecast::autoplot(BTC)+xlab('Time')
 
 To prepare the BTC close price data for deep learning analysis, we applied several pre-processing steps. First, we reshaped the data to make it compatible with advanced neural network models like LSTM, GRU, and LSTM-GRU.
 
-Then, we split the data into training and testing sets using an 80:20 ratio. This approach maintained the continuity of features for the BTC price, ensuring that the models could learn from a coherent dataset while being evaluated on a separate, unseen portion. These steps collectively ensured the data was well-prepared for robust and reliable deep learning analysis.
+Then, we split the data into training and testing sets using an 90:10 ratio. This approach maintained the continuity of features for the BTC price, ensuring that the models could learn from a coherent dataset while being evaluated on a separate, unseen portion. These steps collectively ensured the data was well-prepared for robust and reliable deep learning analysis.
 
 Finally, normalization was a crucial step to ensure the model’s accuracy and prevent bias. To handle the issue of variables with different scales, we applied feature-wise normalization using MinMax Scaling, which recent studies have shown to significantly improve model performance [@ahsan2021]. This technique helped standardize the data, making it easier for the models to learn patterns effectively.
 
@@ -288,7 +288,7 @@ X_val, y_val = create_sequences(val_data, lookback, delay)
 
 
 ```{r table, echo=FALSE, message=FALSE, warning=FALSE}
-n_tr=floor(0.8*length(BTC))
+n_tr=floor(0.9*length(BTC))
 # reshape data
 "All data"=pastecs::stat.desc(BTC, norm = T)
 "Training data"=pastecs::stat.desc(BTC[1:n_tr], norm = T)
@@ -300,25 +300,6 @@ Table[1,]=as.integer(Table[1,])
 knitr::kable(Table, digits = 3, align = "l", caption = "Descriptive statistics of BTC close price")
 ```
 
-## Hyperparameter tuning
-
-Hyperparameter tuning using random search optimization for LSTM (Long Short-Term Memory) and GRU (Gated Recurrent Unit) models in time series prediction involves systematically exploring a predefined hyperparameter space to identify the optimal configuration that maximizes model performance. Key hyperparameters include the number of layers, hidden units, learning rate, batch size, dropout rate, and sequence length. Unlike grid search, random search randomly samples combinations of these hyperparameters from the specified ranges, which is more computationally efficient and often yields competitive results. For LSTM and GRU models, the process begins by defining the search space for each hyperparameter, followed by training and evaluating multiple model instances with different configurations using a validation set or cross-validation. Performance metrics such as Mean Squared Error (MSE) or Mean Absolute Error (MAE) are used to assess the models. The best-performing configuration is then selected for final training and testing time series data. This approach balances exploration and computational cost, making it suitable for optimizing complex recurrent neural networks like LSTM and GRU.
-
-```{r hyper, echo=FALSE}
-  "Hyperparameter"=c("Number of layers", "Number of units", "Learning rate", "Batch size", "Dropout rate", "Sequence length")
-  "Range/Values"=c("1 to 4 (integer)","1 to 10 (integer)", "0.0001, to 0.01 (Logarithmic scale)","16 to 1024 ( Powers of 2)", "0.1 to 0.6 (Increments of 0.1)", "1 to 60 (integer)")
-  "LSTM"=c("","","","","","")
-  "GRU"=c("","","","","","")
-  "LSTM-GRU"=c("","","","","","")
-df=cbind(`Hyperparameter`,`Range/Values`)
-df2=cbind(`Hyperparameter`,`LSTM`,`GRU`, `LSTM-GRU`) 
-knitr::kable(df, caption="Hyperparameter space" )  
-
-```
-
-```{r hyperBest, echo=FALSE}
-knitr::kable(df2, caption="Best Hyperparameters" )
-```
 
 ## Recurrent neural networks
 
@@ -388,6 +369,58 @@ r_t= & \sigma\left(W_r x_t+U_rh_{t-1}+b_r \right)\\
 \widehat{h}_t= & \phi\left(W_hx_t+U_h(r_t \odot h_{t-1})+b_r \right)\\
 h_t= & (1-z_t)\odot h_{t-1}+z_t \odot \widehat{h}_{t}
 \end{align}
+
+## Hyperparameter tuning
+
+Hyperparameter tuning using random search optimization for LSTM (Long Short-Term Memory) and GRU (Gated Recurrent Unit) models in time series prediction involves systematically exploring a predefined hyperparameter space to identify the optimal configuration that maximizes model performance. Key hyperparameters include the number of layers, hidden units, learning rate, batch size, dropout rate, and sequence length. Unlike grid search, random search randomly samples combinations of these hyperparameters from the specified ranges, which is more computationally efficient and often yields competitive results. For LSTM and GRU models, the process begins by defining the search space for each hyperparameter, followed by training and evaluating multiple model instances with different configurations using a validation set or cross-validation. Performance metrics such as Mean Squared Error (MSE) or Mean Absolute Error (MAE) are used to assess the models. The best-performing configuration is then selected for final training and testing time series data. This approach balances exploration and computational cost, making it suitable for optimizing complex recurrent neural networks like LSTM and GRU.
+
+```{r hyper, echo=FALSE}
+  "Hyperparameter"=c("Number of layers", "Number of units", "Learning rate", "Dropout rate", "Dense activation")
+  "Range/Values"=c("1 to 3 (integer)","32 to 128 (Increments of 32)", "0.0001, to 0.01 (Logarithmic scale)", "0.1 to 0.5 (Increments of 0.1)", "['relu','sigmoid']")
+  "LSTM"=c("1","96","0.0003", "0.1","relu")
+  "GRU"=c("","","","","")
+  "LSTM-GRU"=c("","","","","")
+df=cbind(`Hyperparameter`,`Range/Values`)
+df2=cbind(`Hyperparameter`,`LSTM`,`GRU`, `LSTM-GRU`) 
+knitr::kable(df, caption="Hyperparameter space" )  
+
+```
+
+```{r hyperBest, echo=FALSE}
+knitr::kable(df2, caption="Best Hyperparameters" )
+```
+
+## Performance Metrics
+
+To assess how well the proposed RNN algorithms performed, we relied on two key metrics: root mean squared error (RMSE) and mean absolute error percentage (MAPE). These metrics help us evaluate the accuracy of the prediction models—the lower the RMSE and MAPE values, the more accurate and reliable the model's predictions are. Essentially, smaller values indicate better performance.
+
+\begin{equation}
+RMSE = \sqrt{\dfrac{\sum_{i=1}^n (a_i-p_i)^2}{n} }
+\end{equation}
+
+\begin{equation}
+MAPE = \dfrac{100}{n}\sum_{i=1}^n \dfrac{|a_i-p_i|}{ai}
+\end{equation}
+Where $p_i$ represents the predicted value, $a_i$ denotes the actual value, and $n$ stands for the total number of time steps.
+
+# Results
+```{r,echo=FALSE, out.width="60%", fig.cap="Actual and predicted results using the LSTM model."}
+knitr::include_graphics("LSTM_pred.png")
+```
+
+
+```{r, echo=FALSE, eval=FALSE}
+{'input_unit': 96,
+ 'n_layers': 1,
+ 'lstm_0_units': 96,
+ 'layer_2_neurons': 256,
+ 'Dropout_rate': 0.1,
+ 'dense_activation': 'relu',
+ 'learning_rate': 0.00030094925731594785,
+ 'lstm_1_units': 32,
+ 'lstm_2_units': 64}
+```
+
 
 # Acknowledgement(s) {.unnumbered}
 

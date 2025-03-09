@@ -308,7 +308,7 @@ applied several pre-processing steps. First, we reshaped the data to
 make it compatible with advanced neural network models like LSTM, GRU,
 and LSTM-GRU.
 
-Then, we split the data into training and testing sets using an 80:20
+Then, we split the data into training and testing sets using an 90:10
 ratio. This approach maintained the continuity of features for the BTC
 price, ensuring that the models could learn from a coherent dataset
 while being evaluated on a separate, unseen portion. These steps
@@ -334,79 +334,18 @@ data, making it easier for the models to learn patterns effectively.
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-nbr.val & 3334.000 & 2667.000 & 667.000 \\
-min & 364.331 & 364.331 & 25124.677 \\
-max & 106146.263 & 67566.830 & 106146.263 \\
-range & 105781.932 & 67202.499 & 81021.586 \\
-sum & 78528495.741 & 41585466.996 & 36943028.745 \\
-median & 11596.294 & 9043.940 & 58254.010 \\
-mean & 23553.838 & 15592.601 & 55386.850 \\
-SE.mean & 416.957 & 316.925 & 916.086 \\
-std.dev & 24075.429 & 16366.962 & 23659.149 \\
-coef.var & 1.022 & 1.050 & 0.427 \\
-skewness & 1.242 & 1.286 & 0.459 \\
-kurtosis & 0.945 & 0.593 & -0.800 \\
-\end{longtable}
-
-\subsection{Hyperparameter tuning}\label{hyperparameter-tuning}
-
-Hyperparameter tuning using random search optimization for LSTM (Long
-Short-Term Memory) and GRU (Gated Recurrent Unit) models in time series
-prediction involves systematically exploring a predefined hyperparameter
-space to identify the optimal configuration that maximizes model
-performance. Key hyperparameters include the number of layers, hidden
-units, learning rate, batch size, dropout rate, and sequence length.
-Unlike grid search, random search randomly samples combinations of these
-hyperparameters from the specified ranges, which is more computationally
-efficient and often yields competitive results. For LSTM and GRU models,
-the process begins by defining the search space for each hyperparameter,
-followed by training and evaluating multiple model instances with
-different configurations using a validation set or cross-validation.
-Performance metrics such as Mean Squared Error (MSE) or Mean Absolute
-Error (MAE) are used to assess the models. The best-performing
-configuration is then selected for final training and testing time
-series data. This approach balances exploration and computational cost,
-making it suitable for optimizing complex recurrent neural networks like
-LSTM and GRU.
-
-\begin{longtable}[]{@{}ll@{}}
-\caption{Hyperparameter space}\tabularnewline
-\toprule\noalign{}
-Hyperparameter & Range/Values \\
-\midrule\noalign{}
-\endfirsthead
-\toprule\noalign{}
-Hyperparameter & Range/Values \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-Number of layers & 1 to 4 (integer) \\
-Number of units & 1 to 10 (integer) \\
-Learning rate & 0.0001, to 0.01 (Logarithmic scale) \\
-Batch size & 16 to 1024 ( Powers of 2) \\
-Dropout rate & 0.1 to 0.6 (Increments of 0.1) \\
-Sequence length & 1 to 60 (integer) \\
-\end{longtable}
-
-\begin{longtable}[]{@{}llll@{}}
-\caption{Best Hyperparameters}\tabularnewline
-\toprule\noalign{}
-Hyperparameter & LSTM & GRU & LSTM-GRU \\
-\midrule\noalign{}
-\endfirsthead
-\toprule\noalign{}
-Hyperparameter & LSTM & GRU & LSTM-GRU \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-Number of layers & & & \\
-Number of units & & & \\
-Learning rate & & & \\
-Batch size & & & \\
-Dropout rate & & & \\
-Sequence length & & & \\
+nbr.val & 3334.000 & 3000.000 & 334.000 \\
+min & 364.331 & 364.331 & 53948.752 \\
+max & 106146.263 & 73083.501 & 106146.263 \\
+range & 105781.932 & 72719.170 & 52197.511 \\
+sum & 78528495.741 & 53657679.885 & 24870815.857 \\
+median & 11596.294 & 10064.596 & 67383.843 \\
+mean & 23553.838 & 17885.893 & 74463.521 \\
+SE.mean & 416.957 & 313.522 & 876.722 \\
+std.dev & 24075.429 & 17172.292 & 16022.686 \\
+coef.var & 1.022 & 0.960 & 0.215 \\
+skewness & 1.242 & 1.005 & 0.722 \\
+kurtosis & 0.945 & -0.027 & -1.151 \\
 \end{longtable}
 
 \subsection{Recurrent neural networks}\label{recurrent-neural-networks}
@@ -493,6 +432,90 @@ r_t= & \sigma\left(W_r x_t+U_rh_{t-1}+b_r \right)\\
 \widehat{h}_t= & \phi\left(W_hx_t+U_h(r_t \odot h_{t-1})+b_r \right)\\
 h_t= & (1-z_t)\odot h_{t-1}+z_t \odot \widehat{h}_{t}
 \end{align}
+
+\subsection{Hyperparameter tuning}\label{hyperparameter-tuning}
+
+Hyperparameter tuning using random search optimization for LSTM (Long
+Short-Term Memory) and GRU (Gated Recurrent Unit) models in time series
+prediction involves systematically exploring a predefined hyperparameter
+space to identify the optimal configuration that maximizes model
+performance. Key hyperparameters include the number of layers, hidden
+units, learning rate, batch size, dropout rate, and sequence length.
+Unlike grid search, random search randomly samples combinations of these
+hyperparameters from the specified ranges, which is more computationally
+efficient and often yields competitive results. For LSTM and GRU models,
+the process begins by defining the search space for each hyperparameter,
+followed by training and evaluating multiple model instances with
+different configurations using a validation set or cross-validation.
+Performance metrics such as Mean Squared Error (MSE) or Mean Absolute
+Error (MAE) are used to assess the models. The best-performing
+configuration is then selected for final training and testing time
+series data. This approach balances exploration and computational cost,
+making it suitable for optimizing complex recurrent neural networks like
+LSTM and GRU.
+
+\begin{longtable}[]{@{}ll@{}}
+\caption{Hyperparameter space}\tabularnewline
+\toprule\noalign{}
+Hyperparameter & Range/Values \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+Hyperparameter & Range/Values \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Number of layers & 1 to 3 (integer) \\
+Number of units & 32 to 128 (Increments of 32) \\
+Learning rate & 0.0001, to 0.01 (Logarithmic scale) \\
+Dropout rate & 0.1 to 0.5 (Increments of 0.1) \\
+Dense activation & {[}`relu',`sigmoid'{]} \\
+\end{longtable}
+
+\begin{longtable}[]{@{}llll@{}}
+\caption{Best Hyperparameters}\tabularnewline
+\toprule\noalign{}
+Hyperparameter & LSTM & GRU & LSTM-GRU \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+Hyperparameter & LSTM & GRU & LSTM-GRU \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Number of layers & 1 & & \\
+Number of units & 96 & & \\
+Learning rate & 0.0003 & & \\
+Dropout rate & 0.1 & & \\
+Dense activation & relu & & \\
+\end{longtable}
+
+\subsection{Performance Metrics}\label{performance-metrics}
+
+To assess how well the proposed RNN algorithms performed, we relied on
+two key metrics: root mean squared error (RMSE) and mean absolute error
+percentage (MAPE). These metrics help us evaluate the accuracy of the
+prediction models---the lower the RMSE and MAPE values, the more
+accurate and reliable the model's predictions are. Essentially, smaller
+values indicate better performance.
+
+\begin{equation}
+RMSE = \sqrt{\dfrac{\sum_{i=1}^n (a_i-p_i)^2}{n} }
+\end{equation}
+
+\begin{equation}
+MAPE = \dfrac{100}{n}\sum_{i=1}^n \dfrac{|a_i-p_i|}{ai}
+\end{equation} Where \(p_i\) represents the predicted value, \(a_i\)
+denotes the actual value, and \(n\) stands for the total number of time
+steps.
+
+\section{Results}\label{results}
+
+\begin{figure}
+\includegraphics[width=0.6\linewidth]{LSTM_pred} \caption{Actual and predicted results using the LSTM model.}\label{fig:unnamed-chunk-3}
+\end{figure}
 
 \section*{Acknowledgement(s)}\label{acknowledgements}
 \addcontentsline{toc}{section}{Acknowledgement(s)}
