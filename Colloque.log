@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.3.8)  10 MAR 2025 00:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.3.8)  10 MAR 2025 04:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -502,37 +502,38 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 [3]
 
-LaTeX Warning: Reference `tab:table' on page 4 undefined on input line 294.
+[4]
 
-<Colloque_files/figure-latex/BTC-1.pdf, id=165, 469.755pt x 325.215pt>
+LaTeX Warning: Reference `tab:table' on page 5 undefined on input line 319.
+
+<Colloque_files/figure-latex/BTC-1.pdf, id=131, 469.755pt x 325.215pt>
 File: Colloque_files/figure-latex/BTC-1.pdf Graphic file (type pdf)
 <use Colloque_files/figure-latex/BTC-1.pdf>
-Package pdftex.def Info: Colloque_files/figure-latex/BTC-1.pdf  used on input line 298.
+Package pdftex.def Info: Colloque_files/figure-latex/BTC-1.pdf  used on input line 323.
 (pdftex.def)             Requested size: 346.80249pt x 240.09457pt.
 
 
-[4] [5
+[5
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.350 \end{longtable}
-                      <./Colloque_files/figure-latex/BTC-1.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 391--392
+l.350 
+       <./Colloque_files/figure-latex/BTC-1.pdf>]
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 416--417
 
  []
 
-<lstm.jpg, id=202, 372.22247pt x 195.7046pt>
+<lstm.jpg, id=174, 372.22247pt x 195.7046pt>
 File: lstm.jpg Graphic file (type jpg)
 <use lstm.jpg>
-Package pdftex.def Info: lstm.jpg  used on input line 395.
+Package pdftex.def Info: lstm.jpg  used on input line 420.
 (pdftex.def)             Requested size: 306.0pt x 160.88492pt.
-
-
-[6]
-<GRU.png, id=227, 321.45094pt x 252.945pt>
+<GRU.png, id=179, 321.45094pt x 252.945pt>
 File: GRU.png Graphic file (type png)
 <use GRU.png>
-Package pdftex.def Info: GRU.png  used on input line 419.
+Package pdftex.def Info: GRU.png  used on input line 444.
 (pdftex.def)             Requested size: 306.0pt x 240.79428pt.
 
 
@@ -540,51 +541,67 @@ Package pdftex.def Info: GRU.png  used on input line 419.
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.457 
-       <./lstm.jpg>] [8
+l.460 \end{align}
+                  <./lstm.jpg>]
+<model.png, id=204, 599.99156pt x 259.7203pt>
+File: model.png Graphic file (type png)
+<use model.png>
+Package pdftex.def Info: model.png  used on input line 488.
+(pdftex.def)             Requested size: 387.59875pt x 167.78581pt.
+
+
+[8
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.494 \end{longtable}
-                      <./GRU.png>]
-<LSTM1.png, id=255, 371.58826pt x 257.763pt>
-File: LSTM1.png Graphic file (type png)
-<use LSTM1.png>
-Package pdftex.def Info: LSTM1.png  used on input line 519.
-(pdftex.def)             Requested size: 326.40125pt x 226.43095pt.
-<GRU1.png, id=256, 371.58826pt x 257.763pt>
-File: GRU1.png Graphic file (type png)
-<use GRU1.png>
-Package pdftex.def Info: GRU1.png  used on input line 528.
-(pdftex.def)             Requested size: 326.40125pt x 226.43095pt.
-
+l.494 
+       <./GRU.png>]
 
 [9
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.534 
-       <./LSTM1.png (PNG copy)>]
-<Comb.png, id=264, 371.58826pt x 257.763pt>
-File: Comb.png Graphic file (type png)
-<use Comb.png>
-Package pdftex.def Info: Comb.png  used on input line 537.
-(pdftex.def)             Requested size: 326.40125pt x 226.43095pt.
+l.552 \end{longtable}
+                      <./model.png>]
+<LSTM1.png, id=221, 371.58826pt x 257.763pt>
+File: LSTM1.png Graphic file (type png)
+<use LSTM1.png>
+Package pdftex.def Info: LSTM1.png  used on input line 581.
+(pdftex.def)             Requested size: 367.19751pt x 254.73384pt.
 
 
-[10
+[10]
+<GRU1.png, id=233, 371.58826pt x 257.763pt>
+File: GRU1.png Graphic file (type png)
+<use GRU1.png>
+Package pdftex.def Info: GRU1.png  used on input line 618.
+(pdftex.def)             Requested size: 367.19751pt x 254.73384pt.
+
+
+[11
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.574 \end{longtable}
-                     
+l.624 
+       <./LSTM1.png (PNG copy)>]
+<Comb.png, id=242, 371.58826pt x 257.763pt>
+File: Comb.png Graphic file (type png)
+<use Comb.png>
+Package pdftex.def Info: Comb.png  used on input line 627.
+(pdftex.def)             Requested size: 367.19751pt x 254.73384pt.
+
+
+[12
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.574 \end{longtable}
-                      <./GRU1.png (PNG copy)> <./Comb.png (PNG copy)>] (./Colloque.bbl
-
-[11]
+l.647 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.647 
+       <./GRU1.png (PNG copy)> <./Comb.png (PNG copy)>] (./Colloque.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 41--42
 []\OT1/cmr/m/n/10 K^^Pl^^P^^Xc, Deniz Ke-nan, and []Om^^?ur U^^Ugur. 2023. ``Hy-brid wavelet-neural net-
  []
@@ -595,6 +612,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--42
  []
 
 
+
+[13]
 Underfull \hbox (badness 10000) in paragraph at lines 59--60
 []\OT1/cmr/m/n/10 Seabe, Phu-mudzo Lloyd, Claude Ro-drigue Bambe Moutsinga, and Ed-son
  []
@@ -609,16 +628,7 @@ Underfull \hbox (badness 3635) in paragraph at lines 59--60
 \OT1/cmr/m/n/10 Directional LSTM: A Deep Learn-ing Ap-proach.'' \OT1/cmr/m/it/10 Frac-tal and Frac-tional \OT1/cmr/m/n/10 7 (2).
  []
 
-) (./appendix.tex
-
-[12])
-Underfull \hbox (badness 1082) in paragraph at lines 43--599
-\OT1/cmr/m/n/10.95 This ar-ti-cle tem-plate, the \OT1/cmtt/m/n/10.95 interact \OT1/cmr/m/n/10.95 class file and the as-so-ci-ated open-source
- []
-
-
-
-[13]
+)
 
 [14] (./Colloque.aux)
  ***********
@@ -633,21 +643,21 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Colloque.out' has not changed.
-(rerunfilecheck)             Checksum: 75F1AECB0E168B7F9750D6D350787725;3073.
+(rerunfilecheck)             Checksum: 841CB2CC7AC06EC5D2FC6CB94F380457;1835.
  ) 
 Here is how much of TeX's memory you used:
- 11794 strings out of 475171
- 181593 string characters out of 5764406
- 588912 words of memory out of 5000000
- 34530 multiletter control sequences out of 15000+600000
- 569687 words of font info for 79 fonts, out of 8000000 for 9000
+ 11769 strings out of 475171
+ 181218 string characters out of 5764406
+ 590773 words of memory out of 5000000
+ 34516 multiletter control sequences out of 15000+600000
+ 569519 words of font info for 78 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 87i,9n,93p,545b,591s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 87i,9n,93p,545b,598s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/Users/moio/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Colloque.pdf (14 pages, 586347 bytes).
+Output written on Colloque.pdf (14 pages, 599021 bytes).
 PDF statistics:
- 388 PDF objects out of 1000 (max. 8388607)
- 327 compressed objects within 4 object streams
- 86 named destinations out of 1000 (max. 500000)
- 207 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 351 PDF objects out of 1000 (max. 8388607)
+ 290 compressed objects within 3 object streams
+ 77 named destinations out of 1000 (max. 500000)
+ 132 words of extra memory for PDF output out of 10000 (max. 10000000)
 

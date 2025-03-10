@@ -16,7 +16,7 @@ affiliation:
       LaREMFiQ, IHEC Sousse, Tunisia.
  
 bibliography: interactcadsample.bib
-appendix: appendix.tex
+#appendix: appendix.tex
 abstract: |
   Forecasting cryptocurrency time series presents a difficult challenge, primarily attributable to their inherent non-linearity and chaotic behavior. While traditional statistical methodologies have yielded notable efficacy in specific domains, such as directional market prediction and individual equity price forecasting, the advent of neural networks and recurrent neural networks has catalyzed the exploration of novel paradigms in financial time series prediction. Furthermore, contemporary research posits that the synergistic integration of statistical and machine learning techniques can yield enhanced predictive accuracy relative to their isolated application. This study, therefore, proposes a combined framework that integrates statistical features derived from financial time series with a recurrent neural networks architecture for temporal forecasting. The efficacy of this methodology was evaluated through the prediction of Bitcoin (BTC) closing prices, utilizing a suite of performance metrics. Empirical results demonstrate the superiority of our model compared to univariate statistical and machine learning models.  
 keywords: |
@@ -77,6 +77,10 @@ extraction and focus on relevant patterns in the data. Additionally,
 ensemble approaches that aggregate predictions from multiple RNN-based
 models have demonstrated enhanced robustness and accuracy in
 cryptocurrency forecasting.
+
+Although LSTM and GRU models have demonstrated strong potential in financial time series prediction thanks to their generalization capabilities, real-world data often exhibits complex patterns that may require more sophisticated approaches. To address this, combination models have emerged as a powerful solution, integrating multiple techniques to enhance accuracy and robustness beyond what individual models can achieve. So, one of the key objectives of this study is to introduce a novel methodology aimed at improving the predictive performance of RNN models. The proposed approach leverages a combination of LSTM and GRU models to enhance forecasting performance. By integrating the strengths of both architectures, the methodology aims to capture a wider range of temporal dependencies and patterns in the data, ultimately improving prediction accuracy and robustness.
+
+The paper is organized as follow. Section 2 provides an overview of related works in recurrent neural networks (RNNs) and hybrid models, highlighting key advancements and methodologies in the field. We discuss the specifics of the proposed combined forecasting technique, which integrates LSTM and GRU models in section 3. Additionally, it includes a concise overview of the fundamental principles underlying RNN models. Comparative prediction experiments on Bitcoin (BTC) closing prices in Section 4 illustrate the proposed method's performance. Section 5 concludes with a summary of the study.
 
 # Related works
 
@@ -207,7 +211,7 @@ for BTC price, followed by a comprehensive evaluation of performance and
 research insights.
 
 The aim of this study is to leverage advanced deep learning techniques —
-such as LSTM, GRU, and LSTM-GRU - to forecast the prices of BTC. To
+such as LSTM, GRU, and combined LSTM-GRU - to forecast the prices of BTC. To
 achieve this, we follow a structured process: (1) collecting historical
 price data for BTC; (2) visualizing the data to uncover patterns; (3)
 splitting the data into training and testing sets; (4) training the
@@ -347,7 +351,7 @@ h_t  = &  o_t\odot \tanh(c_t)
 knitr::include_graphics("lstm.jpg")
 ```
 
-## Gated Recurrent Units (GRU)
+### Gated Recurrent Units (GRU)
 
 Gated Recurrent Units (GRU) are a type of Recurrent Neural Network (RNN) introduced by [@chung2014] 
 as a more efficient alternative to traditional LSTM networks. Similar to LSTM, GRU are capable 
@@ -371,6 +375,15 @@ r_t= & \sigma\left(W_r x_t+U_rh_{t-1}+b_r \right)\\
 h_t= & (1-z_t)\odot h_{t-1}+z_t \odot \widehat{h}_{t}
 \end{align}
 
+### Main proposed method: A combined LSTM-GRU model
+
+In this paper, we utilize LSTM and GRU models to predict Bitcoin (BTC) closing prices. These models represent advanced and effective mathematical tools for time series forecasting, offering significant potential for capturing complex temporal patterns. The proposed methodology, visualized in \autoref{fig:mod}, combines LSTM and GRU neural networks with the Ordinary Least Squares (OLS) regression technique to forecast Bitcoin (BTC) closing prices. First, historical BTC price data is preprocessed through normalization and feature engineering to capture temporal dependencies. Separate LSTM and GRU models are trained on the same dataset, leveraging their strengths: LSTM’s ability to handle long-term dependencies and GRU’s efficiency in capturing short-term patterns with fewer parameters. Each model generates individual price predictions. These predictions are then treated as input features in an OLS regression framework, which optimally weights the outputs of the two models to minimize the sum of squared errors between the combined prediction and actual BTC prices. This hybrid approach aligns the nonlinear temporal learning of RNNs with the linear optimization of OLS, reducing over-reliance on a single model’s biases and enhancing robustness. The final prediction is a weighted ensemble of LSTM and GRU outputs.
+
+```{r mod, echo=FALSE, fig.align='center', fig.pos='H', fig.cap="Overview of combined LSTM-GRU prediction system", out.width="95%"}
+knitr::include_graphics("model.png" )
+```
+
+
 ## Hyperparameter tuning
 
 Hyperparameter tuning using random search optimization for LSTM (Long Short-Term Memory) and GRU (Gated Recurrent Unit) models in time series prediction involves systematically exploring a predefined hyperparameter space to identify the optimal configuration that maximizes model performance. Key hyperparameters include the number of layers, hidden units, learning rate, batch size, dropout rate, and sequence length. Unlike grid search, random search randomly samples combinations of these hyperparameters from the specified ranges, which is more computationally efficient and often yields competitive results. For LSTM and GRU models, the process begins by defining the search space for each hyperparameter, followed by training and evaluating multiple model instances with different configurations using a validation set or cross-validation. Performance metrics such as Mean Squared Error (MSE) or Mean Absolute Error (MAE) are used to assess the models. The best-performing configuration is then selected for final training and testing time series data. This approach balances exploration and computational cost, making it suitable for optimizing complex recurrent neural networks like LSTM and GRU.
@@ -379,10 +392,9 @@ Hyperparameter tuning using random search optimization for LSTM (Long Short-Term
   "Hyperparameter"=c("Number of layers", "Number of units", "Learning rate", "Dropout rate", "Dense activation")
   "Range/Values"=c("1 to 3 (integer)","32 to 128 (Increments of 32)", "0.0001, to 0.01 (Logarithmic scale)", "0.1 to 0.5 (Increments of 0.1)", "['relu','sigmoid']")
   "LSTM"=c("1","96","0.0003", "0.1","relu")
-  "GRU"=c("","","","","")
-  "LSTM-GRU"=c("","","","","")
+  "GRU"=c("1","96","0.0003","0.1","relu")
 df=cbind(`Hyperparameter`,`Range/Values`)
-df2=cbind(`Hyperparameter`,`LSTM`,`GRU`, `LSTM-GRU`) 
+df2=cbind(`Hyperparameter`,`LSTM`,`GRU`) 
 knitr::kable(df, caption="Hyperparameter space" )  
 
 ```
@@ -393,10 +405,14 @@ knitr::kable(df2, caption="Best Hyperparameters" )
 
 ## Performance Metrics
 
-To assess how well the proposed RNN algorithms performed, we relied on two key metrics: root mean squared error (RMSE) and mean absolute error percentage (MAPE). These metrics help us evaluate the accuracy of the prediction models—the lower the RMSE and MAPE values, the more accurate and reliable the model's predictions are. Essentially, smaller values indicate better performance.
+To assess how well the proposed RNN algorithms performed, we relied on three key metrics: root mean squared error (RMSE), normalized error (NE) and mean absolute error percentage (MAPE). These metrics help us evaluate the accuracy of the prediction models—the lower the RMSE and MAPE values, the more accurate and reliable the model's predictions are. Essentially, smaller values indicate better performance.
 
 \begin{equation}
-RMSE = \sqrt{\dfrac{\sum_{i=1}^n (a_i-p_i)^2}{n} }
+RMSE = \sqrt{\dfrac{\displaystyle{\sum_{i=1}^n (a_i-p_i)^2}}{n} }
+\end{equation}
+
+\begin{equation}
+NE = \dfrac{\displaystyle{\sum_{i=1}^n (a_i-p_i)^2}}{\displaystyle{\sum_{i=1}^n (a_i-\overline{a})^2}}
 \end{equation}
 
 \begin{equation}
@@ -406,35 +422,31 @@ Where $p_i$ represents the predicted value, $a_i$ denotes the actual value, and 
 
 # Results
 
-```{r,echo=FALSE, out.width="80%", fig.cap="Actual and predicted results using the LSTM model.", fig.align='center', fig.pos='H'}
+```{r r_lstm,echo=FALSE, out.width="90%", fig.cap="Actual and predicted results using the LSTM model.", fig.align='center', fig.pos='H'}
 knitr::include_graphics('LSTM1.png')
 ```
 
-```{r,echo=FALSE, out.width="80%", fig.cap="Actual and predicted results using the GRU model.", fig.align='center', fig.pos='H'}
+The results of the LSTM, GRU, and combined models for forecasting Bitcoin (BTC) closing prices are displayed in Figures \ref{fig:r_lstm}, \ref{fig:r_gru}, and \ref{fig:r_comb}, respectively. These figures clearly demonstrate that our proposed model outperforms the others in terms of prediction accuracy. Additionally, Table 2 summarizes the evaluation results for the BTC closing price series using metrics such as RMSE, MAPE, and NE. The table reveals that the combined OLS-LSTM-GRU model achieves the highest accuracy, with the smallest prediction errors across all evaluation criteria. This underscores the effectiveness and relevance of our proposed approach.
+
+```{r, echo=FALSE}
+RMSE=c(3094.497,2224.18,1905.926)
+MAPE=c(3.013,2.471,1.918)
+NE=c(0.037, 0.019,0.014)
+tt=cbind(RMSE, MAPE, NE)
+row.names(tt)=c( "LSTM", "GRU", "Combined")
+knitr::kable(tt, caption = "Forecasting quality metrics for different", align = "l")
+```
+
+```{r r_gru,echo=FALSE, out.width="90%", fig.cap="Actual and predicted results using the GRU model.", fig.align='center', fig.pos='H'}
 knitr::include_graphics('GRU1.png')
 ```
 
-```{r,echo=FALSE, out.width="80%", fig.cap="Actual and predicted results using the combined model.", fig.align='center', fig.pos='H'}
+```{r r_comb,echo=FALSE, out.width="90%", fig.cap="Actual and predicted results using the combined model.", fig.align='center', fig.pos='H'}
 knitr::include_graphics('Comb.png')
 ```
 
-```{r, echo=FALSE}
-'Train data'=c(1012.523, 14.961)
-'Test data'=c(3094.497, 3.0135)
-tt=cbind(`Train data`,`Test data`)
-row.names(tt)=c( "RMSE", "MAPE (%)")
-knitr::kable(tt, caption = "Performance results for the LSTM model", align = "l")
-```
 
-
-```{r, echo=FALSE}
-'Train data'=c(1027.657, 9.020)
-'Test data'=c(2224.180, 2.471)
-tt1=cbind(`Train data`,`Test data`)
-row.names(tt1)=c( "RMSE", "MAPE (%)")
-knitr::kable(tt1, caption = "Performance results for the GRU model", align = "l")
-```
-
+In conclusion, the performance of the proposed method for predicting future cryptocurrency values is compared to LSTM and GRU models. Based on the evaluation methods and results obtained, these models are considered reliable and appropriate. However, it is important to acknowledge that these models have several limitations that may affect their accuracy in predicting cryptocurrency prices. Firstly, cryptocurrency prices are influenced by numerous variables, and LSTM and GRU models may not capture all these dependencies, leading to less accurate predictions. Additionally, these models are susceptible to overfitting, particularly when trained on small datasets, which can result in poor performance on new data. Furthermore, the high levels of noise and volatility in cryptocurrency prices make it difficult for these models to accurately capture underlying trends.
 
 ```{r, echo=FALSE, eval=FALSE}
 {'input_unit': 96,
@@ -447,19 +459,5 @@ knitr::kable(tt1, caption = "Performance results for the GRU model", align = "l"
  'lstm_1_units': 32,
  'lstm_2_units': 64}
 ```
-
-
-# Acknowledgement(s) {.unnumbered}
-
-
-# Disclosure statement {.unnumbered}
-
-# Funding {.unnumbered}
-
-# Notes on contributor(s) {.unnumbered}
-
-# Nomenclature/Notation {.unnumbered}
-
-# Notes {.unnumbered}
 
 # References

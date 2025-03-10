@@ -134,6 +134,30 @@ ensemble approaches that aggregate predictions from multiple RNN-based
 models have demonstrated enhanced robustness and accuracy in
 cryptocurrency forecasting.
 
+Although LSTM and GRU models have demonstrated strong potential in
+financial time series prediction thanks to their generalization
+capabilities, real-world data often exhibits complex patterns that may
+require more sophisticated approaches. To address this, combination
+models have emerged as a powerful solution, integrating multiple
+techniques to enhance accuracy and robustness beyond what individual
+models can achieve. So, one of the key objectives of this study is to
+introduce a novel methodology aimed at improving the predictive
+performance of RNN models. The proposed approach leverages a combination
+of LSTM and GRU models to enhance forecasting performance. By
+integrating the strengths of both architectures, the methodology aims to
+capture a wider range of temporal dependencies and patterns in the data,
+ultimately improving prediction accuracy and robustness.
+
+The paper is organized as follow. Section 2 provides an overview of
+related works in recurrent neural networks (RNNs) and hybrid models,
+highlighting key advancements and methodologies in the field. We discuss
+the specifics of the proposed combined forecasting technique, which
+integrates LSTM and GRU models in section 3. Additionally, it includes a
+concise overview of the fundamental principles underlying RNN models.
+Comparative prediction experiments on Bitcoin (BTC) closing prices in
+Section 4 illustrate the proposed method's performance. Section 5
+concludes with a summary of the study.
+
 \section{Related works}\label{related-works}
 
 Machine Learning is an artificial intelligence device that uses beyond
@@ -263,12 +287,13 @@ for BTC price, followed by a comprehensive evaluation of performance and
 research insights.
 
 The aim of this study is to leverage advanced deep learning techniques
---- such as LSTM, GRU, and LSTM-GRU - to forecast the prices of BTC. To
-achieve this, we follow a structured process: (1) collecting historical
-price data for BTC; (2) visualizing the data to uncover patterns; (3)
-splitting the data into training and testing sets; (4) training the
-three deep learning models; (5) validating the models; and (6) comparing
-the performance of each method to identify the most effective approach.
+--- such as LSTM, GRU, and combined LSTM-GRU - to forecast the prices of
+BTC. To achieve this, we follow a structured process: (1) collecting
+historical price data for BTC; (2) visualizing the data to uncover
+patterns; (3) splitting the data into training and testing sets; (4)
+training the three deep learning models; (5) validating the models; and
+(6) comparing the performance of each method to identify the most
+effective approach.
 
 \subsection{Dataset}\label{dataset}
 
@@ -399,7 +424,7 @@ h_t  = &  o_t\odot \tanh(c_t)
 \caption{Structure of LSTM cell}\label{fig:figlstm}
 \end{figure}
 
-\subsection{Gated Recurrent Units
+\subsubsection{Gated Recurrent Units
 (GRU)}\label{gated-recurrent-units-gru}
 
 Gated Recurrent Units (GRU) are a type of Recurrent Neural Network (RNN)
@@ -433,6 +458,39 @@ r_t= & \sigma\left(W_r x_t+U_rh_{t-1}+b_r \right)\\
 \widehat{h}_t= & \phi\left(W_hx_t+U_h(r_t \odot h_{t-1})+b_r \right)\\
 h_t= & (1-z_t)\odot h_{t-1}+z_t \odot \widehat{h}_{t}
 \end{align}
+
+\subsubsection{Main proposed method: A combined LSTM-GRU
+model}\label{main-proposed-method-a-combined-lstm-gru-model}
+
+In this paper, we utilize LSTM and GRU models to predict Bitcoin (BTC)
+closing prices. These models represent advanced and effective
+mathematical tools for time series forecasting, offering significant
+potential for capturing complex temporal patterns. The proposed
+methodology, visualized in \autoref{fig:mod}, combines LSTM and GRU
+neural networks with the Ordinary Least Squares (OLS) regression
+technique to forecast Bitcoin (BTC) closing prices. First, historical
+BTC price data is preprocessed through normalization and feature
+engineering to capture temporal dependencies. Separate LSTM and GRU
+models are trained on the same dataset, leveraging their strengths:
+LSTM's ability to handle long-term dependencies and GRU's efficiency in
+capturing short-term patterns with fewer parameters. Each model
+generates individual price predictions. These predictions are then
+treated as input features in an OLS regression framework, which
+optimally weights the outputs of the two models to minimize the sum of
+squared errors between the combined prediction and actual BTC prices.
+This hybrid approach aligns the nonlinear temporal learning of RNNs with
+the linear optimization of OLS, reducing over-reliance on a single
+model's biases and enhancing robustness. The final prediction is a
+weighted ensemble of LSTM and GRU outputs.
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=0.95\linewidth]{model} 
+
+}
+
+\caption{Overview of combined LSTM-GRU prediction system}\label{fig:mod}
+\end{figure}
 
 \subsection{Hyperparameter tuning}\label{hyperparameter-tuning}
 
@@ -474,36 +532,40 @@ Dropout rate & 0.1 to 0.5 (Increments of 0.1) \\
 Dense activation & {[}`relu',`sigmoid'{]} \\
 \end{longtable}
 
-\begin{longtable}[]{@{}llll@{}}
+\begin{longtable}[]{@{}lll@{}}
 \caption{Best Hyperparameters}\tabularnewline
 \toprule\noalign{}
-Hyperparameter & LSTM & GRU & LSTM-GRU \\
+Hyperparameter & LSTM & GRU \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-Hyperparameter & LSTM & GRU & LSTM-GRU \\
+Hyperparameter & LSTM & GRU \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Number of layers & 1 & & \\
-Number of units & 96 & & \\
-Learning rate & 0.0003 & & \\
-Dropout rate & 0.1 & & \\
-Dense activation & relu & & \\
+Number of layers & 1 & 1 \\
+Number of units & 96 & 96 \\
+Learning rate & 0.0003 & 0.0003 \\
+Dropout rate & 0.1 & 0.1 \\
+Dense activation & relu & relu \\
 \end{longtable}
 
 \subsection{Performance Metrics}\label{performance-metrics}
 
 To assess how well the proposed RNN algorithms performed, we relied on
-two key metrics: root mean squared error (RMSE) and mean absolute error
-percentage (MAPE). These metrics help us evaluate the accuracy of the
-prediction models---the lower the RMSE and MAPE values, the more
-accurate and reliable the model's predictions are. Essentially, smaller
-values indicate better performance.
+three key metrics: root mean squared error (RMSE), normalized error (NE)
+and mean absolute error percentage (MAPE). These metrics help us
+evaluate the accuracy of the prediction models---the lower the RMSE and
+MAPE values, the more accurate and reliable the model's predictions are.
+Essentially, smaller values indicate better performance.
 
 \begin{equation}
-RMSE = \sqrt{\dfrac{\sum_{i=1}^n (a_i-p_i)^2}{n} }
+RMSE = \sqrt{\dfrac{\displaystyle{\sum_{i=1}^n (a_i-p_i)^2}}{n} }
+\end{equation}
+
+\begin{equation}
+NE = \dfrac{\displaystyle{\sum_{i=1}^n (a_i-p_i)^2}}{\displaystyle{\sum_{i=1}^n (a_i-\overline{a})^2}}
 \end{equation}
 
 \begin{equation}
@@ -516,86 +578,77 @@ steps.
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.8\linewidth]{LSTM1} 
+{\centering \includegraphics[width=0.9\linewidth]{LSTM1} 
 
 }
 
-\caption{Actual and predicted results using the LSTM model.}\label{fig:unnamed-chunk-3}
+\caption{Actual and predicted results using the LSTM model.}\label{fig:r_lstm}
 \end{figure}
 
-\begin{figure}[H]
+The results of the LSTM, GRU, and combined models for forecasting
+Bitcoin (BTC) closing prices are displayed in Figures \ref{fig:r_lstm},
+\ref{fig:r_gru}, and \ref{fig:r_comb}, respectively. These figures
+clearly demonstrate that our proposed model outperforms the others in
+terms of prediction accuracy. Additionally, Table 2 summarizes the
+evaluation results for the BTC closing price series using metrics such
+as RMSE, MAPE, and NE. The table reveals that the combined OLS-LSTM-GRU
+model achieves the highest accuracy, with the smallest prediction errors
+across all evaluation criteria. This underscores the effectiveness and
+relevance of our proposed approach.
 
-{\centering \includegraphics[width=0.8\linewidth]{GRU1} 
-
-}
-
-\caption{Actual and predicted results using the GRU model.}\label{fig:unnamed-chunk-4}
-\end{figure}
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.8\linewidth]{Comb} 
-
-}
-
-\caption{Actual and predicted results using the combined model.}\label{fig:unnamed-chunk-5}
-\end{figure}
-
-\begin{longtable}[]{@{}lll@{}}
-\caption{Performance results for the LSTM model}\tabularnewline
+\begin{longtable}[]{@{}llll@{}}
+\caption{Forecasting quality metrics for different}\tabularnewline
 \toprule\noalign{}
-& Train data & Test data \\
+& RMSE & MAPE & NE \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-& Train data & Test data \\
+& RMSE & MAPE & NE \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-RMSE & 1012.523 & 3094.4970 \\
-MAPE (\%) & 14.961 & 3.0135 \\
+LSTM & 3094.497 & 3.013 & 0.037 \\
+GRU & 2224.180 & 2.471 & 0.019 \\
+Combined & 1905.926 & 1.918 & 0.014 \\
 \end{longtable}
 
-\begin{longtable}[]{@{}lll@{}}
-\caption{Performance results for the GRU model}\tabularnewline
-\toprule\noalign{}
-& Train data & Test data \\
-\midrule\noalign{}
-\endfirsthead
-\toprule\noalign{}
-& Train data & Test data \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-RMSE & 1027.657 & 2224.180 \\
-MAPE (\%) & 9.020 & 2.471 \\
-\end{longtable}
+\begin{figure}[H]
 
-\section*{Acknowledgement(s)}\label{acknowledgements}
-\addcontentsline{toc}{section}{Acknowledgement(s)}
+{\centering \includegraphics[width=0.9\linewidth]{GRU1} 
 
-\section*{Disclosure statement}\label{disclosure-statement}
-\addcontentsline{toc}{section}{Disclosure statement}
+}
 
-\section*{Funding}\label{funding}
-\addcontentsline{toc}{section}{Funding}
+\caption{Actual and predicted results using the GRU model.}\label{fig:r_gru}
+\end{figure}
 
-\section*{Notes on contributor(s)}\label{notes-on-contributors}
-\addcontentsline{toc}{section}{Notes on contributor(s)}
+\begin{figure}[H]
 
-\section*{Nomenclature/Notation}\label{nomenclaturenotation}
-\addcontentsline{toc}{section}{Nomenclature/Notation}
+{\centering \includegraphics[width=0.9\linewidth]{Comb} 
 
-\section*{Notes}\label{notes}
-\addcontentsline{toc}{section}{Notes}
+}
+
+\caption{Actual and predicted results using the combined model.}\label{fig:r_comb}
+\end{figure}
+
+In conclusion, the performance of the proposed method for predicting
+future cryptocurrency values is compared to LSTM and GRU models. Based
+on the evaluation methods and results obtained, these models are
+considered reliable and appropriate. However, it is important to
+acknowledge that these models have several limitations that may affect
+their accuracy in predicting cryptocurrency prices. Firstly,
+cryptocurrency prices are influenced by numerous variables, and LSTM and
+GRU models may not capture all these dependencies, leading to less
+accurate predictions. Additionally, these models are susceptible to
+overfitting, particularly when trained on small datasets, which can
+result in poor performance on new data. Furthermore, the high levels of
+noise and volatility in cryptocurrency prices make it difficult for
+these models to accurately capture underlying trends.
 
 \bibliographystyle{tfcad}
 \bibliography{interactcadsample.bib}
 
 
-\input{"appendix.tex"}
 
 
 
